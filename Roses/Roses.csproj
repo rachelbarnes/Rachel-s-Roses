@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PercentCalculator.cs" />
+    <Compile Include="Reader.cs" />
     <Compile Include="VolumeInterfaces.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PanVolumes.cs" />

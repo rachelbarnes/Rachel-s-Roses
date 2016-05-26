@@ -53,6 +53,7 @@ namespace Roses
         [Test]
         public void RectangularPanVolume2()
         {
+
             var rect = new RectangularPan(8, 11, 2);
             IGetVolume getVol = (IGetVolume)rect;
             var actual = getVol.GetVolume();
@@ -72,8 +73,6 @@ namespace Roses
             var actual = percent.percent(80, 50); 
             Assert.AreEqual(160, actual);
         }
-        //i dont understand why this wont work - it takes 2 numbers and return an output of the division of those two numbers with the product multipled by 100. I tested it with a very simple piece of logic, and it still doesn't work. The exception that was handled seemed to have come from the nunit tests and not the logic. I will have to ask Steve or someone. 
-
         [Test]
         public void Aggregate()
         {
@@ -92,5 +91,12 @@ namespace Roses
             //i know there's a much better way to add items to a list... this is getting rather extensive for a test.
             //need to have the GetAggregatedArea public, but then i get the inconsistency error. 
         }
+        //[Test]
+        //public void ReadFile()
+        //{
+        //    var readFile = new Reader();
+        //    var actual = "test"; 
+        //    Assert.AreEqual()
+        //}
     }
 }

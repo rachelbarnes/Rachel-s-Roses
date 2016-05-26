@@ -65,6 +65,7 @@ namespace Roses
         public int GetAggregatedArea(List<IGetVolume> Pans)
         {
             var total = 0;
+            //the specified seed value, which is total here, is the starting point of for .Aggregate
             return Pans.Aggregate(total, (accumulatingVolume, pan) => accumulatingVolume + pan.GetVolume());
         }
     }
