@@ -12,8 +12,7 @@ namespace Roses
     }
     public class Percent
     {
-        public Func<double, double, int> percent = (x, y) => Convert.ToInt32((x / y) * 100);
-        //need to have these be doubles or floats, otherwise you'll get an int of 2/10, which is 0 * 100, which is 0. 
+        public Func<double, double, int> percent = (x, y) => (int)((x / y) * 100);
     }
     public class RoundPan : IGetVolume
     {
@@ -24,10 +23,11 @@ namespace Roses
             this._diameter = diameter;
             this._depth = depth;
         }
+
         int IGetVolume.GetVolume()
         {
             var square = new SqaureFN();
-            return Convert.ToInt32(Math.PI * (square.sqaure(_diameter / 2)) * _depth);
+            return (int)(Math.PI * (square.sqaure(_diameter / 2)) * _depth);
         }
     }
     public class SquarePan : IGetVolume
@@ -41,7 +41,7 @@ namespace Roses
         }
         int IGetVolume.GetVolume()
         {
-            return Convert.ToInt32(_width * _width * _depth);
+            return (int)(_width * _width * _depth);
         }
     }
     public class RectangularPan : IGetVolume
@@ -57,7 +57,7 @@ namespace Roses
         }
         int IGetVolume.GetVolume()
         {
-            return Convert.ToInt32(_width * _length * _depth);
+            return (int)(_width * _length * _depth);
         }
     }
     public class Aggregater 

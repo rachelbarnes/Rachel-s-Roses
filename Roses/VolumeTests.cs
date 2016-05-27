@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Roses
 {
     [TestFixture]
-    class Tests
+    class VolumeTests
     {
         [Test]
         public void RoundPanVolume()
@@ -16,7 +16,7 @@ namespace Roses
             var round = new RoundPan(8, 2);
             IGetVolume getVol = (IGetVolume)round;
             var actual = getVol.GetVolume();
-            Assert.AreEqual(101, actual);
+            Assert.AreEqual(100, actual);
         }
         [Test]
         public void RoundPanVolume2()
@@ -87,7 +87,7 @@ namespace Roses
             cake.Add(round2);
             cake.Add(square2);
             var actual = aggregate.GetAggregatedArea(cake);
-            Assert.AreEqual(895, actual);
+            Assert.AreEqual(894, actual);
             //i know there's a much better way to add items to a list... this is getting rather extensive for a test.
             //need to have the GetAggregatedArea public, but then i get the inconsistency error. 
         }

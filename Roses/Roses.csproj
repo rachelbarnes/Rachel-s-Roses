@@ -47,13 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversionTests.cs" />
+    <Compile Include="Convert.cs" />
     <Compile Include="PercentCalculator.cs" />
     <Compile Include="Reader.cs" />
+    <Compile Include="IngredientConversion.cs" />
     <Compile Include="VolumeInterfaces.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PanVolumes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="VolumeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

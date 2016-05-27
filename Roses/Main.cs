@@ -12,11 +12,15 @@ namespace Roses
         static void Main(string[] args)
         {
             var reader = new Reader();
+            var convert = new IngredientConversion(); 
             var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\test.txt";
             //reader.OpenFile(filename);
 
             reader.ReadFile(filename); 
             Console.ReadLine();
+
+            convert.EvaluateSplitStrings(filename);
+            Console.ReadLine(); 
         }
     }
 }

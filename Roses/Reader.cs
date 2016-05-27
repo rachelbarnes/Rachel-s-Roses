@@ -24,20 +24,25 @@ namespace Roses
                 Console.ReadLine();
             }
         }
-        //read the file
-        public void ReadFile(string filename)
+        //read the file, print out ingredients
+        public List<string> ReadFile(string filename)
         {
             string lineOfText = "";
             var TextLines = new List<string>();
-            var Text = "";
+            //var Text = "";
             using (StreamReader ReadMyFile = new StreamReader(filename))
             {
                 while ((lineOfText = ReadMyFile.ReadLine()) != null)
                 {
+                    if (lineOfText.Contains("Instruction"))
+                    {
+                        break;
+                    }
                     TextLines.Add(lineOfText);
                     Console.WriteLine(lineOfText);
                 }
             }
+            return TextLines; 
         }
     }
 }
