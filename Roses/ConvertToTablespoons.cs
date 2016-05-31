@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Roses
 {
-    public class Convert
+    public class ConvertToTablespoons
     {
         //PAY ATTENTION TO TYPES HERE - THE TYPES HERE AND IN THE TESTS NEED TO CHANGE
-        public int CupsToTablespoons(int cups)
+        public decimal CupsToTablespoons(decimal cups)
         {
             return cups * 16;
         }
-        public int TeaspoonsToTablespoons(int teaspoons)
+        public decimal TeaspoonsToTablespoons(decimal teaspoons)
         {
             return teaspoons / 3;
         }

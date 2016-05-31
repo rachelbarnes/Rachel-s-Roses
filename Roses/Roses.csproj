@@ -47,8 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DecimalPlaces.cs" />
     <Compile Include="ConversionTests.cs" />
-    <Compile Include="Convert.cs" />
+    <Compile Include="ConvertToTablespoons.cs" />
+    <Compile Include="GeneralFunctionality.cs" />
+    <Compile Include="GeneralTests.cs" />
+    <Compile Include="MeasurementCalculation.cs" />
     <Compile Include="PercentCalculator.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="IngredientConversion.cs" />
