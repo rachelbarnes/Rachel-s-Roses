@@ -12,14 +12,14 @@ namespace Roses
         static void Main(string[] args)
         {
             var reader = new Reader();
-            var convert = new IngredientConversion(); 
+            var convert = new IngredientConversion();
+            var adjust = new AdjustMeasurements(); 
             var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\test.txt";
 
-            reader.ReadFile(filename); 
+            convert.PrintRecipe(filename);
             Console.ReadLine();
 
-            convert.ConvertToTablespoons(filename);
-            Console.ReadLine(); 
+            adjust.AdjustIngredientMeasurements(filename, 4); 
         }
     }
 }

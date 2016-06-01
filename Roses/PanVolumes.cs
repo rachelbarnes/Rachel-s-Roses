@@ -15,7 +15,6 @@ namespace Roses
             this._diameter = diameter;
             this._depth = depth;
         }
-
         int IGetVolume.GetVolume()
         {
             var square = new SqaureFN();
