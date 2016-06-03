@@ -14,8 +14,4 @@ namespace Roses
     {
         public Func<double, double, int> percent = (x, y) => (int)((x / y) * 100);
     }
-    public class MultiplyRecipe
-    {
-        public Func<decimal, decimal, decimal> MultiplyIgredientBy = (ingredientMeasurement, multiplier) => (ingredientMeasurement * multiplier); 
-    }
 }

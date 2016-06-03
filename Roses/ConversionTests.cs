@@ -38,21 +38,6 @@ namespace Roses
             var actual = 1;
             Assert.AreEqual(convert.TeaspoonsToTablespoons(3), actual);
         }
-        //[Test]
-        //public void ConverttTo2()
-        //{
-        //    var convert = new ConvertToTablespoons();
-        //    var actual = (1.66m);
-        //    var expected = String.Format("{0:0.00", convert.TeaspoonsToTablespoons(5m)); 
-        //    Assert.AreEqual(expected, actual);
-        //}
-        //[Test]
-        //public void DivideRecipebyHalf()
-        //{
-        //    var calculate = new MeasurementCalculation();
-        //    var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\TestForMeasurementCalculation";
-        //   // var actual = calculate.IngredientMeasurementCalculator(filename); 
-        //}
         [Test]
         public void AllStringsAttached()
         {
@@ -82,6 +67,15 @@ namespace Roses
             var actual = convert.CombineArrayWithoutOriginalUnitofMeasurement(myIngredientLine);
             var expected = combinedLine;
             Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestingIngredientsWithoutMeasurements()
+        {
+            var adjust = new AdjustMeasurements();
+            var myIngredientLine = "3 eggs, lightly beaten";
+            var stringSplit = myIngredientLine.Split(' ');
+            var actual = adjust.AdjustIngredientMeasurements(@"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\eggstest.txt", 2);
+            Assert.AreEqual(6, actual);   
         }
     }
 }

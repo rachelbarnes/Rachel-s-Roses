@@ -16,10 +16,11 @@ namespace Roses
             var adjust = new AdjustMeasurements(); 
             var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\test.txt";
 
-            convert.PrintRecipe(filename);
+            //convert.PrintRecipe(filename);
+            Console.WriteLine(adjust.AdjustIngredientMeasurements(filename, 2)); 
             Console.ReadLine();
 
-            adjust.AdjustIngredientMeasurements(filename, 4); 
+            //adjust.AdjustIngredientMeasurements(filename, .25m); 
         }
     }
 }

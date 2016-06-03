@@ -6,28 +6,74 @@ using System.Threading.Tasks;
 
 namespace Roses
 {
+    public class AdjustIngredientMeasurement
+    {
+        public Func<decimal, decimal, decimal> AdjustIngredient = (ingredientMeasurement, multiplier) => (ingredientMeasurement * multiplier);
+    }//purpose is to adjust the values based on the given multiplier
     public class AdjustMeasurements
     {
         public List<string> AdjustIngredientMeasurements(string filename, decimal multiplier)
         {
-            var convert = new IngredientConversion();
-            var GetPercent = new Percent(); 
-            var ReadMyFile = new Reader();
-            var AdjustRecipe = new MultiplyRecipe(); 
-            var MyFile = ReadMyFile.ReadFile(filename);
-            var Recipe = convert.GetIngredientMeasurement(filename);
-            var AdjustedRecipe = new List<string>();
-            var IngredientMeasurement = new string[]{ };
-            var AdjustedIngredientMeasurement = "0"; 
-            foreach (var ingredient in Recipe)
+            var convertIngredientMeasurementsToTablespoons= new IngredientConversion();
+            var MyRecipe = convertIngredientMeasurementsToTablespoons.GetIngredientMeasurement(filename);
+            var AdjustedIngredient = 0m;
+            var AdjustedRecipe = new List<string>(); 
+            foreach (var line in MyRecipe)
             {
-                //there's something wrong with either casting or the string is in the wrong format. 
-                IngredientMeasurement = ingredient.Split(' ');
-                AdjustedIngredientMeasurement = AdjustRecipe.MultiplyIgredientBy((Convert.ToDecimal(IngredientMeasurement[0])), (decimal)multiplier).ToString();
-                Console.WriteLine(AdjustedIngredientMeasurement + "tablespoons");
-                AdjustedRecipe.Add(AdjustedIngredientMeasurement); 
+                AdjustedIngredient = Convert.ToDecimal(line) * multiplier;
+                if (AdjustedIngredient == 1m)
+                {
+                    AdjustedRecipe.Add(AdjustedIngredient + " tablespoon");
+                }
+                //the test is failing because the adjusted ingredient that i have here is putting the tablespoon/tablespoons on it when for something like eggs, it doesn't have measurement unit
+                //my thought process was to say that if it doesn't contain those, don't add it
+                //if (AdjustedIngredient.ToString().Contains("tablespoon"))
+                else
+                {
+                    AdjustedRecipe.Add(AdjustedIngredient + " tablespoons");
+                }
             }
-            return AdjustedRecipe; 
+            Console.WriteLine(AdjustedRecipe); 
+            return AdjustedRecipe;
         }
     }
 }
+            //trial and error
+            //var convert = new IngredientConversion();
+            //var GetPercent = new Percent();
+            //var ReadMyFile = new Reader();
+            //var AdjustRecipe = new AdjustIngredientMeasurement();
+            //var MyFile = ReadMyFile.ReadFile(filename);
+            //var Recipe = convert.GetIngredientMeasurement(filename);
+            //var AdjustedRecipe = new List<string>();
+            //var IngredientMeasurement = new string[] { };
+            //var AdjustedIngredientMeasurement = 0m;
+            //var AdjustedIngredient = "";
+
+            //this method takes the tablespoon conveted ingredient meaurements and adjusts it based on a multiplier
+            //foreach (var ingredient in Recipe)
+            //{
+            //    IngredientMeasurement = ingredient.Split(' ');
+            //    input string isn't in the correct format
+            //    try
+            //    {
+            //        AdjustedIngredientMeasurement = AdjustRecipe.AdjustIngredient(Convert.ToDecimal(IngredientMeasurement[0]), multiplier);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine("There was an error interpreting this ingredient");
+            //        Console.WriteLine(ex);
+            //        Console.ReadLine();
+            //        i dont think it's taking the eggs well
+            //    }
+            //    if (AdjustedIngredientMeasurement == 1)
+            //    {
+            //        AdjustedIngredient = AdjustedIngredientMeasurement.ToString() + " tablespoon";
+            //    }
+            //    else
+            //    {
+            //        AdjustedIngredient = AdjustedIngredientMeasurement.ToString() + " tablespoons";
+            //    }
+            //    Console.WriteLine(AdjustedIngredient);
+            //    AdjustedRecipe.Add(AdjustedIngredient);
+            //}

@@ -8,7 +8,6 @@ namespace Roses
 {
     public class ConvertToTablespoons
     {
-        //PAY ATTENTION TO TYPES HERE - THE TYPES HERE AND IN THE TESTS NEED TO CHANGE
         public decimal CupsToTablespoons(decimal cups)
         {
             return cups * 16;
