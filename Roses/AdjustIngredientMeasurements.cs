@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Roses
 {
     public class AdjustIngredientMeasurement
-    {
+    {   //purpose is to adjust the values based on the given multiplier
         public Func<decimal, decimal, decimal> AdjustIngredient = (ingredientMeasurement, multiplier) => (ingredientMeasurement * multiplier);
-    }//purpose is to adjust the values based on the given multiplier
+    }
     public class AdjustMeasurements
     {
         public List<string> AdjustIngredientMeasurements(string filename, decimal multiplier)
@@ -25,9 +25,7 @@ namespace Roses
                 {
                     AdjustedRecipe.Add(AdjustedIngredient + " tablespoon");
                 }
-                //the test is failing because the adjusted ingredient that i have here is putting the tablespoon/tablespoons on it when for something like eggs, it doesn't have measurement unit
-                //my thought process was to say that if it doesn't contain those, don't add it
-                //if (AdjustedIngredient.ToString().Contains("tablespoon"))
+   
                 else
                 {
                     AdjustedRecipe.Add(AdjustedIngredient + " tablespoons");

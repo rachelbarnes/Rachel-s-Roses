@@ -8,29 +8,7 @@ namespace Roses
 {
     public class IngredientConversion
     {
-        //this method combines a string array
-        //combines a string array excluding the first split string (designed for arrays returning from split strings) 
-        public string CombineArray(string[] IngredientLine)
-        {
-            return string.Join(" ", IngredientLine, 1, (IngredientLine.Length - 1));
-        }
-        //combines a string array excluding the first 2 elements (designed for arrays returning from split strings)
-        //as an interesting note... when i start the index at 2, which omits the actual measurement and unit of measurement, I have to decrease the length by 2. It gives the total length, it doens't give when to stop. So when I had (IngredientLine - 1), I was asking it to go outside of the bounds of the array. 
-        public string CombineArrayWithoutOriginalUnitofMeasurement(string[] IngredientLine)
-        {
-            var returnstring = "";
-            if (IngredientLine.Count() >= 2)
-            {
-                returnstring = string.Join(" ", IngredientLine, 2, (IngredientLine.Length - 2));
-            }
-            else
-            {
-                returnstring = CombineArray(IngredientLine);  
-            }
-            return returnstring; 
-        }
-
-        //converts everything to T; easier to use than .02 cups for teaspoons and 48 t for cups 
+            //converts everything to T; easier to use than .02 cups for teaspoons and 48 t for cups 
         //this method splits the line, and converts it from cups or teaspoons to tablespoons, and adds it to a list that I have collected, which is in essence my recipe. 
         public List<string> GetIngredientMeasurement(string filename)
         {
@@ -47,19 +25,23 @@ namespace Roses
                 Ingredient = line.Split(' '); //Ingredient is the array that is returned from the string split
                 if (line.Contains("cup"))
                 {
-                    IngredientMeasurement = ConvertToTablespoons.CupsToTablespoons(Convert.ToDecimal(Ingredient[0].ToString())).ToString(); 
+                    IngredientMeasurement = ConvertToTablespoons.CupsToTablespoons(Convert.ToDecimal(Ingredient[0].ToString())).ToString();
+                    Console.WriteLine(IngredientMeasurement); 
                 }
                 if (line.Contains("tablespoon"))
                 {
                     IngredientMeasurement = Int32.Parse(Ingredient[0].ToString()).ToString();
+                    Console.WriteLine(IngredientMeasurement); 
                 }
                 if (line.Contains("teaspoon"))
                 {
                     IngredientMeasurement = ConvertToTablespoons.TeaspoonsToTablespoons(Convert.ToDecimal(Ingredient[0].ToString())).ToString();
+                    Console.WriteLine(IngredientMeasurement); 
                 }
                 if (!line.Contains("cup") || line.Contains("tablespoon") || line.Contains("teaspoon"))
                 {
                     IngredientMeasurement = Ingredient[0].ToString();
+                    Console.WriteLine(IngredientMeasurement); 
                 }
                 Recipe.Add(IngredientMeasurement);
             }

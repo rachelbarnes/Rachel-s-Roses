@@ -47,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombineArrays.cs" />
+    <Compile Include="CombiningTests.cs" />
     <Compile Include="DecimalPlaces.cs" />
     <Compile Include="ConversionTests.cs" />
     <Compile Include="ConvertToTablespoons.cs" />
     <Compile Include="GeneralFunctionality.cs" />
     <Compile Include="GeneralTests.cs" />
-    <Compile Include="MeasurementCalculation.cs" />
+    <Compile Include="AdjustIngredientMeasurements.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="IngredientConversion.cs" />
     <Compile Include="VolumeInterfaces.cs" />
@@ -63,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
