@@ -88,10 +88,17 @@ namespace Roses
        [Test]
        public void TestingFunctionalityOfConversionToDecimalAfterStringSplit()
         {
-            var ConvertMeasurement = new ConvertIngredientMeasurementToTablespoons();
             var myArray = new string[] { "1", "3" };
             var actual = Convert.ToDecimal(myArray[1]);
             var expected = 3m;  
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestingFunctionalityOfMoreDecimalPlacesAfterStringSplit()
+        {
+            var myArray = new string[] { "1.37859", "3.14159" };
+            var actual = Convert.ToDecimal(myArray[1]);
+            var expected = 3.14159m;
             Assert.AreEqual(expected, actual); 
         }
 
@@ -102,7 +109,7 @@ namespace Roses
             var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\CompilingTest.txt";
             var actual = adjust.AdjustRecipeTablespoonMeasurements(filename, 1);
             var MyRecipe = new string[] { "16 tablespoons", "5.33 tablespoons", ".66 tablespoons", "3 tablespoons", "1.33 tablespoons", "1 tablespoon" };
-            Assert.AreEqual(MyRecipe, actual); 
+            Assert.AreEqual(MyRecipe, actual.ToList()); 
         }
         [Test]
         public void ConvertRecipeToTablespoonsIntMultiplier()

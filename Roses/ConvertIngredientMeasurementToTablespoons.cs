@@ -13,14 +13,14 @@ namespace Roses
             var Round = new RoundDecimalPlaces();
             var ToTablespoons = new ConvertToTablespoons();
             var Split = new SplitLines();
-            var CupsToTablespoonMeasurement = 0m;
-            var RoundedTablespoonMeasurement = "";
-            var IngredientLine = Split.SplitIngredientLineAtSpaces(MeasurementInCups);
+            string RoundedTablespoonMeasurement = "";
+            string[] IngredientLine = Split.SplitIngredientLineAtSpaces(MeasurementInCups);
+            //there's something about CupsToTablespoonMeasurement - this is where I am getting the error in the stack trace in all of my failing tests that use this method 
+            decimal CupsToTablespoonMeasurement = ToTablespoons.CupsToTablespoons(Convert.ToDecimal(IngredientLine[0]));
 
-            CupsToTablespoonMeasurement = ToTablespoons.CupsToTablespoons(Convert.ToDecimal(IngredientLine[0]));
-            if (CupsToTablespoonMeasurement == 1)
+            if (CupsToTablespoonMeasurement == 1m)
             {
-                RoundedTablespoonMeasurement = Round.RoundToHundrethDecimalPlace(CupsToTablespoonMeasurement) + " tablespoon";
+                RoundedTablespoonMeasurement = CupsToTablespoonMeasurement + " tablespoon";
             }
             else
             {
@@ -39,7 +39,7 @@ namespace Roses
             var IngredientLine = split.SplitIngredientLineAtSpaces(MeasurementInTeaspoons);
 
             TeaspoonsToTablespoons = ToTablespoons.TeaspoonsToTablespoons(Convert.ToDecimal(IngredientLine[0]));
-            if (TeaspoonsToTablespoons == 1)
+            if (TeaspoonsToTablespoons == 1m)
             {
                 RoundedTablespoonMeasurement = Round.RoundToHundrethDecimalPlace(TeaspoonsToTablespoons) + " tablespoon";
             }
@@ -59,7 +59,7 @@ namespace Roses
             var IngredientLine = split.SplitIngredientLineAtSpaces(Measurement);
 
             TablespoonsMeasurement = Convert.ToDecimal(IngredientLine[0]);
-            if (TablespoonsMeasurement == 1)
+            if (TablespoonsMeasurement == 1m)
             {
                 RoundedTablespoonMeasurement = Round.RoundToHundrethDecimalPlace(TablespoonsMeasurement) + " tablespoon"; 
             }
