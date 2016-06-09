@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Roses
 {
-    class DecimalPlaces
+    public class RoundDecimalPlaces
     {
-        public string HundrethDecimalPlaces(decimal number)
+        public string RoundToHundrethDecimalPlace(decimal number)
         {
             var numberString = number.ToString();
             var outputDecimal = String.Format("{0:0.00}", number);
-            var outputDecimalChars = outputDecimal.ToCharArray(); 
-            if  ((outputDecimalChars[outputDecimal.Length - 1] == '0') && (outputDecimalChars[outputDecimal.Length - 2]) == '0')
+            var outputDecimalChars = outputDecimal.ToCharArray();
+            var lastPlace = outputDecimalChars[outputDecimal.Length - 1];
+            var secondtoLastPlace = outputDecimalChars[outputDecimal.Length - 2];  
+            if ((lastPlace == '0') && (secondtoLastPlace == '0'))
             {
                 outputDecimal = String.Format("{0}", number); 
             }

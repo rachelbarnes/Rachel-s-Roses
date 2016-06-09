@@ -9,8 +9,6 @@ namespace Roses
 {
     public class Reader
     {
-        //open the file
-        //this wasn't working last time... look at it again. 
         public void OpenFile(string filename)
         {
             try
@@ -24,12 +22,11 @@ namespace Roses
                 Console.ReadLine();
             }
         }
-        //read the file, print out ingredients
+
         public List<string> ReadFile(string filename)
         {
             string lineOfText = "";
             var TextLines = new List<string>();
-            //var Text = "";
             using (StreamReader ReadMyFile = new StreamReader(filename))
             {
                 while ((lineOfText = ReadMyFile.ReadLine()) != null)
@@ -39,7 +36,6 @@ namespace Roses
                         break;
                     }
                     TextLines.Add(lineOfText);
-                    Console.WriteLine(lineOfText);
                 }
             }
             return TextLines; 

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE9E4309-653B-49A0-9392-56874FB36E07}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{ED6AD055-42B0-4E2C-99CC-A9D85CB5AB5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Roses</RootNamespace>
-    <AssemblyName>Roses</AssemblyName>
+    <RootNamespace>TestsForRoses</RootNamespace>
+    <AssemblyName>TestsForRoses</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,26 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdjustRecipe.cs" />
-    <Compile Include="CombineArrays.cs" />
-    <Compile Include="ConvertIngredientMeasurementToTablespoons.cs" />
-    <Compile Include="Interfaces.cs" />
-    <Compile Include="RoundDecimalPlaces.cs" />
-    <Compile Include="ConvertToTablespoons.cs" />
-    <Compile Include="GeneralFunctionality.cs" />
-    <Compile Include="AdjustRecipeMeasurements.cs" />
-    <Compile Include="Reader.cs" />
-    <Compile Include="IngredientConversion.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="PanVolumes.cs" />
+    <Compile Include="CombiningTests.cs" />
+    <Compile Include="ConversionTests.cs" />
+    <Compile Include="ConvertingFromOtherUnitsOfMeasurementsTests.cs" />
+    <Compile Include="GeneralTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitLineTests.cs" />
+    <Compile Include="VolumeTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Roses\Roses.csproj">
+      <Project>{ee9e4309-653b-49a0-9392-56874fb36e07}</Project>
+      <Name>Roses</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

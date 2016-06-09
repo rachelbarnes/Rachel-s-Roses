@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Roses
 {
-        //right now I have three combining methods. CombineArray is the standard array that is used after getting the measurement and it is coupled best with  
     public class CombineArrays
     {
         public string CombineArray(string[] IngredientLine)
@@ -29,10 +28,7 @@ namespace Roses
 
         public string CombineArrayWithStartingPoint(string[] IngredientLine, int StartingPoint)
         {
-
             return string.Join(" ", IngredientLine, StartingPoint, (IngredientLine.Length - StartingPoint));
         }
-
-
     }
 }
