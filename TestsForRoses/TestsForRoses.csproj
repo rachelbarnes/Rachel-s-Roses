@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdjustWholeRecipesTests.cs" />
     <Compile Include="CombiningTests.cs" />
     <Compile Include="ConversionTests.cs" />
     <Compile Include="ConvertingFromOtherUnitsOfMeasurementsTests.cs" />

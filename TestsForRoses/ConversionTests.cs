@@ -25,7 +25,7 @@ namespace Roses
             Assert.AreEqual(convert.CupsToTablespoons(2), actual);
         }
         [Test]
-      
+
         public void ConvertCtoT2()
         {
             var convert = new ConvertToTablespoons();
@@ -39,5 +39,6 @@ namespace Roses
             var actual = 1;
             Assert.AreEqual(convert.TeaspoonsToTablespoons(3), actual);
         }
+    
     }
 }

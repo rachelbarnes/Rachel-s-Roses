@@ -41,10 +41,10 @@ namespace Roses
         //[Test]
         public void TestingIngredientsWithoutMeasurements()
         {
-            var adjust = new AdjustMeasurements();
+            var adjust = new AdjustRecipe();
             var myIngredientLine = "3 eggs, lightly beaten";
             var stringSplit = myIngredientLine.Split(' ');
-            var actual = adjust.AdjustIngredientMeasurements(myIngredientLine, 2);
+            var actual = adjust.AdjustRecipeTablespoonMeasurements(myIngredientLine, 2);
             Assert.AreEqual(6, actual);   
         }
         [Test]

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Roses
 {
-    public class ConvertIngredientMeasurementToTablespoons
+    public class ConvertCandtToTablespoons
     {
-        public string ConvertIngredientWCupMeasurementToTablespoons(string MeasurementInCups)
+        public string ConvertCupsToTablespoons(string MeasurementInCups)
         {
             var Round = new RoundDecimalPlaces();
             var ToTablespoons = new ConvertToTablespoons();
@@ -17,7 +17,6 @@ namespace Roses
             string[] IngredientLine = Split.SplitIngredientLineAtSpaces(MeasurementInCups);
             //there's something about CupsToTablespoonMeasurement - this is where I am getting the error in the stack trace in all of my failing tests that use this method 
             decimal CupsToTablespoonMeasurement = ToTablespoons.CupsToTablespoons(Convert.ToDecimal(IngredientLine[0]));
-
             if (CupsToTablespoonMeasurement == 1m)
             {
                 RoundedTablespoonMeasurement = CupsToTablespoonMeasurement + " tablespoon";
@@ -29,7 +28,7 @@ namespace Roses
             return RoundedTablespoonMeasurement;
         }
 
-        public string ConvertIngredientWTeaspoonsMeasurementToTablespoons(string MeasurementInTeaspoons)
+        public string ConvertTeaspoonsToTablespoons(string MeasurementInTeaspoons)
         {
             var Round = new RoundDecimalPlaces();
             var ToTablespoons = new ConvertToTablespoons();

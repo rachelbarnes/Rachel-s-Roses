@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="AdjustRecipe.cs" />
     <Compile Include="CombineArrays.cs" />
-    <Compile Include="ConvertIngredientMeasurementToTablespoons.cs" />
+    <Compile Include="ConvertCupsAndTeaspoonsToTablespoons.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="RoundDecimalPlaces.cs" />
     <Compile Include="ConvertToTablespoons.cs" />

@@ -1,5 +1,5 @@
 1 cup sugar
-1/3 cup honey
+.33333 cup honey
 2 teaspoons baking powder
 3 tablespoons coconut
 1.3333 tablespoons something else
