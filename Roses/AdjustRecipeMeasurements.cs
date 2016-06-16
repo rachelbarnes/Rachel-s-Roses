@@ -12,9 +12,9 @@ namespace Roses
 
         public List<string> AdjustIngredientMeasurements(string filename, decimal multiplier)
         {
-            var convertIngredientMeasurementsToTablespoons = new IngredientConversion();
+            var ConvertToTablespoonMeasurements = new IngredientConversion();
             var combine = new CombineArrays();
-            var MyRecipe = convertIngredientMeasurementsToTablespoons.GetIngredientMeasurement(filename);
+            var MyRecipe = ConvertToTablespoonMeasurements.GetIngredientMeasurement(filename);
             var AdjustedIngredient = 0m;
             var AdjustedRecipe = new List<string>();
             foreach (var line in MyRecipe)
