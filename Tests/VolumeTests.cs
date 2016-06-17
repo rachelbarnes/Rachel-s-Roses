@@ -77,26 +77,16 @@ namespace Roses
         public void Aggregate()
         {
             var aggregate = new Aggregater();
-            var cake = new List<IGetVolume>();
-            var round = new RoundPan(6, 2);
-            var square = new SquarePan(9, 2);
-            var round2 = new RoundPan(12, 2);
-            var square2 = new SquarePan(15, 2);
-            cake.Add(round);
-            cake.Add(square);
-            cake.Add(round2);
-            cake.Add(square2);
+            var cake = new List<IGetVolume>
+            {
+                new RoundPan(6, 2),
+                new SquarePan(9, 2),
+                new RoundPan(12, 2),
+                new SquarePan(14, 2),
+                new RectangularPan(14, 11, 2)
+            };
             var actual = aggregate.GetAggregatedArea(cake);
-            Assert.AreEqual(894, actual);
-            //i know there's a much better way to add items to a list... this is getting rather extensive for a test.
-            //need to have the GetAggregatedArea public, but then i get the inconsistency error. 
+            Assert.AreEqual(1144, actual);
         }
-        //[Test]
-        //public void ReadFile()
-        //{
-        //    var readFile = new Reader();
-        //    var actual = "test"; 
-        //    Assert.AreEqual()
-        //}
     }
 }

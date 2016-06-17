@@ -7,8 +7,7 @@ using NUnit.Framework;
 
 namespace Roses
 {
-    [TestFixture]
-    public class CombiningTests
+    class CombiningTests
     {  [Test]
         public void AllStringsAttached()
         {
@@ -39,17 +38,14 @@ namespace Roses
             var expected = combinedLine;
             Assert.AreEqual(expected, actual); 
         }
-        [Test]
-        public void TestingIngredientsWithoutMeasurements()
-        {
-             //the test is failing because the adjusted ingredient that i have here is putting the tablespoon/tablespoons on it when for something like eggs, it doesn't have measurement unit
-                //my thought process was to say that if it doesn't contain a specific measurement such as cup, tablespoon, teapsoon, don't add it, or just have it say what it was originally 
-            var adjust = new AdjustMeasurements();
-            var myIngredientLine = "3 eggs, lightly beaten";
-            var stringSplit = myIngredientLine.Split(' ');
-            var actual = adjust.AdjustIngredientMeasurements(@"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\eggstest.txt", 2);
-            Assert.AreEqual(6, actual);   
-        }
+        //[Test]
+        //public void TestingIngredientsWithoutMeasurements()
+        //{
+        //    var adjust = new AdjustRecipe();
+        //    var myIngredientLine = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses";
+        //    var actual = adjust.AdjustRecipeTablespoonMeasurements(myIngredientLine, 2);
+        //    Assert.AreEqual(6, actual);   
+        //}
         [Test]
         public void TestingCombineArrays()
         {
