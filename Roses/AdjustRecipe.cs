@@ -12,7 +12,7 @@ namespace Roses
 
         public string[] AdjustRecipeTablespoonMeasurements(string filename, decimal multiplier)
         {
-            var ConvertMeasurements = new ConvertIngredientMeasurementToTablespoons(); 
+            var ConvertMeasurements = new ConvertCandtToTablespoons(); 
             var ReadMyFile = new Reader();
             var MyFile = ReadMyFile.ReadFile(filename);
             var MyRecipe = new List<string>();
@@ -20,7 +20,7 @@ namespace Roses
             foreach (var ingredient in MyFile)
             {
                 if (ingredient.Contains("cup")){
-                    IngredientMeasurement = ConvertMeasurements.ConvertIngredientWCupMeasurementToTablespoons(ingredient); 
+                    IngredientMeasurement = ConvertMeasurements.ConvertCupsToTablespoons(ingredient); 
                 }
                 if (ingredient.Contains("tablespoon"))
                 {
@@ -28,7 +28,7 @@ namespace Roses
                 }
                 if (ingredient.Contains("teaspoon"))
                 {
-                    IngredientMeasurement = ConvertMeasurements.ConvertIngredientWTeaspoonsMeasurementToTablespoons(ingredient); 
+                    IngredientMeasurement = ConvertMeasurements.ConvertTeaspoonsToTablespoons(ingredient); 
                 }
                 MyRecipe.Add(IngredientMeasurement); 
             }
