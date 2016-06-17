@@ -54,7 +54,6 @@
     <Compile Include="RoundDecimalPlaces.cs" />
     <Compile Include="ConvertToTablespoons.cs" />
     <Compile Include="GeneralFunctionality.cs" />
-    <Compile Include="AdjustRecipeMeasurements.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="IngredientConversion.cs" />
     <Compile Include="Main.cs" />
