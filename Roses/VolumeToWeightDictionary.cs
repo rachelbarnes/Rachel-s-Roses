@@ -10,7 +10,7 @@ namespace Roses
     {
         //key: weight of 1 cup of the ingredient 
         //value: how many ounces said ingredient's 1 cup
-        public Dictionary<string, decimal> IngredientVolumeToWeightRaio = new Dictionary<string, decimal>()
+        public Dictionary<string, decimal> IngredientVolumeToWeightRatio = new Dictionary<string, decimal>()
         {
             //dry ingredients
             {"flour", 5m },
@@ -33,7 +33,7 @@ namespace Roses
             {"yeast, active dry", 5.49m },
             {"vegetable oil", 7.7m },
 
-            //wet ingredients
+            //wet ingredientsWeightOf1CupIngredient
             {"butter", 8m },
             {"milk", 8m },
             {"buttermilk", 8.5m },
@@ -57,7 +57,7 @@ namespace Roses
             {"walnuts, halved", 3.5m },
             {"pecans, halved", 3.5m },
             {"bananas",  12m },//about 1 1/3 cups mashed bananas = 1 lb
-            {"zucchini", 8m }, 
-        };
+            {"zucchini", 8m }
+};
     }
 }

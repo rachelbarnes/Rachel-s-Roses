@@ -25,13 +25,13 @@ namespace Roses
         public decimal GetDictionaryValue()
         {
             var Dictionary = new VolumeToWeightDictionary();
-            return Dictionary.IngredientVolumeToWeightRaio["this key is not in my dictionary"]; 
+            return Dictionary.IngredientVolumeToWeightRatio["this key is not in my dictionary but you're going to tell me there's already a key named this anyway"]; 
         } 
         public string OuncesToCups(string Ingredient, int Ounces)
         {
             var CupsToOuncesRatio = new VolumeToWeightDictionary();
-            var Value = CupsToOuncesRatio.IngredientVolumeToWeightRaio[Ingredient]; 
-            if (CupsToOuncesRatio.IngredientVolumeToWeightRaio.ContainsKey(Ingredient))
+            var Value = CupsToOuncesRatio.IngredientVolumeToWeightRatio[Ingredient]; 
+            if (CupsToOuncesRatio.IngredientVolumeToWeightRatio.ContainsKey(Ingredient))
             {
                 return (Ounces / Value).ToString() + " cups"; 
             }
@@ -43,7 +43,7 @@ namespace Roses
         public string CupsToOunces(string Ingredient, int Cups)
         {
             var CupsToOuncesRatio = new VolumeToWeightDictionary();
-            var Value = CupsToOuncesRatio.IngredientVolumeToWeightRaio[Ingredient];
+            var Value = CupsToOuncesRatio.IngredientVolumeToWeightRatio[Ingredient];
             try
             {
                 return (Cups * Value).ToString() + " ounces"; 

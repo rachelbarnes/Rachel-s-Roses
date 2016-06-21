@@ -50,13 +50,14 @@ namespace Roses
             var expected = "10 ounces";
             Assert.AreEqual(expected, actual); 
         }
+
         [Test]
         public void TestingSomeDictionaryStuff()
         {
             var AnalyzeVolumeAndWeight = new VolumeToWeightLogic();
             var actual = AnalyzeVolumeAndWeight.GetDictionaryValue();
             var expected = 4.5m;
-            Assert.AreEqual(expected, actual); 
+            Assert.AreEqual(expected, actual);
         }
     }
 }
