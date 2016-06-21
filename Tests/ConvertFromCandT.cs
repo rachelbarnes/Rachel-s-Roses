@@ -109,30 +109,30 @@ namespace Roses
             var expected = "72.00 tablespoons";
             Assert.AreEqual(expected, actual);
         }
-        [Test]
-        public void TestingMoreDecimals()
-        {
-            var round = new RoundDecimalPlaces();
-            var actual = round.RoundToHundrethDecimalPlace(150.40m);
-            var expected = "150.4";
-            Assert.AreEqual(expected, actual); 
-        }
-        [Test]
-        public void RoundingTablespoonsTest()
-        {
-            var adjust = new ConvertCandtToTablespoons(); 
-            var actual = adjust.RoundTablespoonMeasurement("1 tablespoons");
-            var expected = "1 tablespoon";
-            Assert.AreEqual(expected, actual); 
-        }
-        [Test]
-        public void RoundingTablespoonsTest2()
-        {
-            var adjust = new ConvertCandtToTablespoons(); 
-            var actual = adjust.RoundTablespoonMeasurement("12 tablespoons");
-            var expected = "12 tablespoons";
-            Assert.AreEqual(expected, actual); 
-        }
+        //[Test]
+        //public void TestingMoreDecimals()
+        //{
+        //    var round = new RoundDecimalPlaces();
+        //    var actual = round.RoundToHundrethDecimalPlace(150.40m);
+        //    var expected = "150.4";
+        //    Assert.AreEqual(expected, actual); 
+        //}
+        //[Test]
+        //public void RoundingTablespoonsTest()
+        //{
+        //    var adjust = new ConvertCandtToTablespoons(); 
+        //    var actual = adjust.RoundTablespoonMeasurement("1 tablespoons");
+        //    var expected = "1 tablespoon";
+        //    Assert.AreEqual(expected, actual); 
+        //}
+        //[Test]
+        //public void RoundingTablespoonsTest2()
+        //{
+        //    var adjust = new ConvertCandtToTablespoons(); 
+        //    var actual = adjust.RoundTablespoonMeasurement("12 tablespoons");
+        //    var expected = "12 tablespoons";
+        //    Assert.AreEqual(expected, actual); 
+        //}
         [Test]
         public void AdjustTeaspoonsMeasurementToTablespoons()
         {

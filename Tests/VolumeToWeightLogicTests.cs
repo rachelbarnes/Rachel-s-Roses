@@ -42,5 +42,21 @@ namespace Roses
             var expected = 24m;
             Assert.AreEqual(expected, actual); 
         }
+        [Test]
+        public void TestingCupsToOuncesConversionViaDictionary() {
+            var AnalyzeVolumeAndWeight = new VolumeToWeightLogic();
+            //analyze how many ounces are in 2 cups ap flour
+            var actual = AnalyzeVolumeAndWeight.CupsToOunces("flour", 2);
+            var expected = "10 ounces";
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestingSomeDictionaryStuff()
+        {
+            var AnalyzeVolumeAndWeight = new VolumeToWeightLogic();
+            var actual = AnalyzeVolumeAndWeight.GetDictionaryValue();
+            var expected = 4.5m;
+            Assert.AreEqual(expected, actual); 
+        }
     }
 }
