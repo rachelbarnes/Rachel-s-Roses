@@ -1,4 +1,4 @@
-﻿Tasks and Stories: 
+﻿Functionalities of Rachel's Roses
 
 Recipe Measurement Converter
 	Get area of pans (circular, sqaure and rectangular pans) and be able to aggregate the volumes. 
@@ -14,10 +14,11 @@ Recipe Measurement Converter
 		Convert measurements to cups, tablespoons and teaspoons
 		Multiply a recipe by a multiplier from the percent calculator concerning the desired pan and the regulatd yielding pan for that recipe. 
 		Total cups used (translating from teaspoons and tablespoons) to allow for better lists for needed ingredients. 
+THIS IS NOT FINISHED YET
 	
 
 Price Analysis and Evaluator
-	Get the prices of individual ingredients as well as whole recipes. KNowing the individual prices allow better calculations for comparing different brands for ingredients and knowing which ingredients are the most costly. In my opinion, it can also allows an easier aggregator for the whole recipe. 
+	Get the prices of individual ingredients as well as whole recipes. Knowing the individual prices allow better calculations for comparing different brands for ingredients and knowing which ingredients are the most costly. In my opinion, it can also allows an easier aggregator for the whole recipe. 
 	Using a functionality of a price analysis opens the world of business in with baking and cake decorating. 
 	For a profit calculator for paying workers, this is done by taking the money we made and subtracting the actual price of all the ingredients and materials. That difference is then calculated by however many workers there were. If there were 2 workers, we paid 350 for ingredients and we made 600, our profits/"wages" would be $125 a piece. 
 	For a product price calculator, this is done by looking at the individual costs it takes to make the product and adding a profit to it (an 85% profit of a loaf of bread that costs $3.50 to make would be var Profit = 3.50*.85 and var Final Price = 3.50 + Profit. 
@@ -31,4 +32,11 @@ Price Analysis and Evaluator
 		Product price calculator
 
 
-I wanted to do something with nutritional information, although this can be done afterwards. This can very easily be done online, and I will have already called plenty of Get Requests to walmart's database that I wouldn't be doing the nutritional information for necessarily more of the same introductory experience. 
+Nutritional Analysis
+	Get the nutritional information of individual ingredeints as well as whole recipes with serving sizes and calories. This would include the entire nutritional lablel that is standard on products sold, which includes calories, calories from fat, servings per container, serving sizes, total fat, saturated fat, trans fat, cholesteral, sodium, total carbs, dietary fiber, sugars, protein, vitmains A, C, Calcium and Iron. I also want the % Daily Value with percentages, as well as the ingredients in my products in the required orders. This will be able to write this information into a word file, which I would like to be able to customize the format of the word file to print on some large labels so I could print them and place on bread, etc. if needed. If no labels, then just write to a word document. 
+	
+	Major functionalities: 
+		Print accurate nutritional facts, incl. servings, serving size and calories
+		% Daily Value according to a 2000 calorie diet
+		Write to a standard word file 
+		Write to a customized word file with 4"x6" labels  

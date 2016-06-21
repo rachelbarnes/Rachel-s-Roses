@@ -20,7 +20,10 @@ namespace Roses
             Console.WriteLine(adjust.AdjustRecipeTablespoonMeasurements(filename, 2)); 
             Console.ReadLine();
 
-            //adjust.AdjustIngredientMeasurements(filename, .25m); 
+            //adjust.AdjustIngredientMeasurements(filename, .25m);
+
+            //var get = new GetRequestWalmartAPI();
+            //Console.WriteLine(get.GetRequest());  
         }
     }
 }
