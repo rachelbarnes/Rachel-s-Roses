@@ -52,13 +52,11 @@
     <Compile Include="ConvertToTablespoons.cs" />
     <Compile Include="CostAnalysisFunctionality.cs" />
     <Compile Include="GetCost.cs" />
-    <Compile Include="IngredientVolumesAndWeights.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="RoundDecimalPlaces.cs" />
     <Compile Include="ConvertToTablespoonsLogic.cs" />
     <Compile Include="GeneralFunctionality.cs" />
     <Compile Include="Reader.cs" />
-    <Compile Include="IngredientConversion.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PanVolumes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,7 +15,7 @@ namespace Roses
             var ConvertToTablespoons = new ConvertToTablespoons();
             var Ingredient = new string[] { };
             var IngredientMeasurement = "0";
-            var MyFile = ReadMyFile.ReadFile(filename);
+            var MyFile = ReadMyFile.ReadRecipe(filename);
             var RecipeWithoutMeasurementUnits = new List<string>();
             var RoundedIngredientMeasurement = "";
             foreach (var line in MyFile)

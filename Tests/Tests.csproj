@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplitLineTests.cs" />
     <Compile Include="VolumeTests.cs" />
-    <Compile Include="VolumeToWeightLogicTests.cs" />
+    <Compile Include="VolumeToWeightTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

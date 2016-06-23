@@ -23,7 +23,7 @@ namespace Roses
             }
         }
 
-        public List<string> ReadFile(string filename)
+        public List<string> ReadRecipe(string filename)
         {
             string lineOfText = "";
             var TextLines = new List<string>();
@@ -39,6 +39,22 @@ namespace Roses
                 }
             }
             return TextLines; 
+        }
+        public List<string> ReadVolumeToWeightDatabase(string filename)
+        {
+            string Ratio = "";
+            var Textlines = new List<string>();
+            using (StreamReader ReadMyFile = new StreamReader(filename))
+            {
+                while ((Ratio = ReadMyFile.ReadLine()) != null)
+                {
+                    if (Ratio.Contains(':'))
+                    {
+                        Textlines.Add(Ratio); 
+                    }
+                }
+            }
+            return Textlines; 
         }
     }
 }

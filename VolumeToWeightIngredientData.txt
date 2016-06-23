@@ -1,0 +1,46 @@
+Dry Ingredients
+flour: 5
+bread flour: 5.5
+cake flour: 4.5
+pastry flour: 4.25
+whole wheat flour: 5 
+coarse cornmeal: 4.85
+fine cornmeal: 6.3
+sugar, granulated: 7.1 
+sugar, brown: 7.75
+sugar, powdered, sifted: 3.6 
+sugar, powdered, unsifted: 4.4
+milk powder: 4.4
+cocoa powder: 4.16
+baking soda: 8.57
+baking powder:8.4
+salt: 10.72
+general spices: 4.4 
+yeast, active dry: 5.49 
+
+Wet Ingredients
+vegetable oil: 7.7
+milk: 8 
+egg(1 egg): 1.7
+butter: 8
+shortening: 7.25
+vanilla extract: 6.86
+buttermilk: 8.5
+cream cheese: 8.2
+sour cream: 8.6
+honey: 12
+yogurt: 8.6
+heavy cream: 8.4
+water: 8
+
+Fruits, Nuts and Chocolate Chips
+
+raisins: 5
+coconut, dry, shredded: 2.5
+oats: 3
+chocolate chips: 5.35
+walnuts, chopped: 4.3
+walnuts, halved: 3.5
+pecans, halved: 3.5
+bananas, mashed: 12
+zucchini, shredded: 8

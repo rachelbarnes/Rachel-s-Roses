@@ -19,9 +19,18 @@ namespace Roses
     }
     public class SplitLines
     {
-        public string[] SplitIngredientLineAtSpaces(string line)
+        //when you rewrite the measurement calculator, use SplitLineAtSpecifiedChar()
+        public string[] SplitLineAtSpaces(string line)
         {
-            return line.Split(' '); 
+            return line.Split(' ');
+        }
+        public string[] SplitLineAtColon(string line)
+        {
+            return line.Split(':'); 
+        }
+        public string[] SplitLineAtSpecifiedChar(char Character, string line)
+        {
+            return line.Split(Character); 
         }
     }
 }

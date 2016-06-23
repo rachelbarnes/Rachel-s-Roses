@@ -23,14 +23,14 @@ Price Analysis and Evaluator
 	For a profit calculator for paying workers, this is done by taking the money we made and subtracting the actual price of all the ingredients and materials. That difference is then calculated by however many workers there were. If there were 2 workers, we paid 350 for ingredients and we made 600, our profits/"wages" would be $125 a piece. 
 	For a product price calculator, this is done by looking at the individual costs it takes to make the product and adding a profit to it (an 85% profit of a loaf of bread that costs $3.50 to make would be var Profit = 3.50*.85 and var Final Price = 3.50 + Profit. 
 	A good idea for more introductions to "databases" is to load my profit/costs results into a database and whenever I go to check the aggregated cost and profit of a product, I could submit the data, run it against that which is in the database, and if it is the same, or within a 5% margin, I could return a bool that says true for whether or not we could use that price...
-
+	To go along with a price calculator, I want to be able to search through the walmart API and if I make a get request for "flour", I want it to be able to give me all of the responses for flour with sizes and prices. Then, I can choose one and my code can evaluate the prices for each of the items I choose, or for each of the items that show as a result of the get result. 
 	Major functionalities: 
 		Profit calculator for workers
 		Total Estimated Price: 
 		Total Actual Price: 
 		Difference calculator of estimated and actual
 		Product price calculator
-
+		Get a list of products with a key word
 
 Nutritional Analysis
 	Get the nutritional information of individual ingredeints as well as whole recipes with serving sizes and calories. This would include the entire nutritional lablel that is standard on products sold, which includes calories, calories from fat, servings per container, serving sizes, total fat, saturated fat, trans fat, cholesteral, sodium, total carbs, dietary fiber, sugars, protein, vitmains A, C, Calcium and Iron. I also want the % Daily Value with percentages, as well as the ingredients in my products in the required orders. This will be able to write this information into a word file, which I would like to be able to customize the format of the word file to print on some large labels so I could print them and place on bread, etc. if needed. If no labels, then just write to a word document. 

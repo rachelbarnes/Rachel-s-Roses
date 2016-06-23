@@ -16,7 +16,7 @@ namespace Roses
             var split = new SplitLines();
             var StringToSplit = "Split this line at the spaces";
             var expected = new string[] { "Split", "this", "line", "at", "the", "spaces" };
-            Assert.AreEqual(expected, split.SplitIngredientLineAtSpaces(StringToSplit)); 
+            Assert.AreEqual(expected, split.SplitLineAtSpaces(StringToSplit)); 
         }
     }
 }

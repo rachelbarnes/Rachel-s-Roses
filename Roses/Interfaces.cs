@@ -15,4 +15,9 @@ namespace Roses
     {
         string ConvertMeasurementToTablespoons(string Measurement); 
     }
+
+    public interface IngredientFactory
+    {
+        int CreateIngredient(string IngredientName, decimal IngredientVolume); 
+    }
 }

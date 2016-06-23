@@ -14,7 +14,7 @@ namespace Roses
         {
             var ConvertMeasurements = new ConvertCandtToTablespoons(); 
             var ReadMyFile = new Reader();
-            var MyFile = ReadMyFile.ReadFile(filename);
+            var MyFile = ReadMyFile.ReadRecipe(filename);
             var MyRecipe = new List<string>();
             var IngredientMeasurement = "";
             foreach (var ingredient in MyFile)

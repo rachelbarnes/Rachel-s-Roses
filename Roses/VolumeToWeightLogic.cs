@@ -16,63 +16,84 @@ namespace Roses
 
         public Func<decimal, decimal> GramsToOunces = Grams => Grams / 28;
 
-        public Func<decimal, decimal> GramsToPounds = Grams => (Grams / 28) / 16; 
+        public Func<decimal, decimal> GramsToPounds = Grams => (Grams / 28) / 16;
 
-        //This method is using the dictionary keys and values in the IngredientWeightToVolume Dictionary. The key is the ingredient, and the value is the ounces in one measuring cup of the ingredient
-        //OuncesToCups takes the ounces that are provided and converts those ounces to cups for the particular ingredient
-        //CupsToOunces takes the cups provided and converts those cups to ounces for the particular ingredient        
+        public Func<string, string, string> ConcatRatioArray => (IngredientName, Weight) => IngredientName + " : " + Weight;
 
-        public decimal GetDictionaryValue()
+        //Read text file, and split each line at the ':'; this prints out a list of the arrays that come from the line.split(':') method. 
+        public List<string[]> SplitRatioLinesIntoIngredientVolumeWeightRatios(string filename)
         {
-            var Dictionary = new VolumeToWeightDictionary();
-            return Dictionary.IngredientVolumeToWeightRatio["this key is not in my dictionary but you're going to tell me there's already a key named this anyway"]; 
-        } 
-        public string OuncesToCups(string Ingredient, int Ounces)
-        {
-            var CupsToOuncesRatio = new VolumeToWeightDictionary();
-            var Value = CupsToOuncesRatio.IngredientVolumeToWeightRatio[Ingredient]; 
-            if (CupsToOuncesRatio.IngredientVolumeToWeightRatio.ContainsKey(Ingredient))
+            var ReadMyFile = new Reader();
+            var SplitLine = new SplitLines();
+            var RatioDatabase = ReadMyFile.ReadVolumeToWeightDatabase(filename);
+            var RatioArray = new string[] { };
+            var ListOfRatios = new List<string[]>();
+            foreach (string ratio in RatioDatabase)
             {
-                return (Ounces / Value).ToString() + " cups"; 
+                RatioArray = SplitLine.SplitLineAtColon(ratio);
+                ListOfRatios.Add(RatioArray);
             }
-            else
-            {
-                return "Please try typing the ingredient again with no uppercase letters, the dictionary does not contain that specific ingredient.";
-            }
-        }
-        public string CupsToOunces(string Ingredient, int Cups)
-        {
-            var CupsToOuncesRatio = new VolumeToWeightDictionary();
-            var Value = CupsToOuncesRatio.IngredientVolumeToWeightRatio[Ingredient];
-            try
-            {
-                return (Cups * Value).ToString() + " ounces"; 
-            }
-            catch (KeyNotFoundException)
-            {
-                return "Please try typing the ingredient again with no uppercase letters, the dictionary does not contain that specific ingredient.";             
-            }
+            return ListOfRatios;
         }
 
-
-
-
-
-        //this is the alternative to the dictionary... and this, while arguably logical, is not what I want to do. Have a method for each and every ingredient... no ma'am. 
-        public decimal Flour(decimal MeasurementInCups)
+        //this gets the number cups from the MeasuredOunces for a specified Ingredient as the parameter in the file specified
+        public string MeasuredOuncesToCups(string IngredientName, decimal MeasuredOunces, string filename)
         {
-            var CupRatio = 1m;
-            var OunceRatio = 4.5m;
-            var NewMeasurementInOunces = (MeasurementInCups / CupRatio) * OunceRatio;
-            return NewMeasurementInOunces; 
+            var ListOfRatios = SplitRatioLinesIntoIngredientVolumeWeightRatios(filename);
+            var RatioedOunces = 0m;
+            var CalculatedCups = 0m;
+            var MeasuredIngredientInCups = "";
+            for (int Line = 0; Line < ListOfRatios.Count; Line++)
+            {
+                if (ListOfRatios[Line].Contains(IngredientName))
+                {
+                    RatioedOunces = GetOuncesFromVolumeWeightRatio(filename);
+                    CalculatedCups = MeasuredOunces / RatioedOunces;
+                    MeasuredIngredientInCups = ConcatRatioArray(IngredientName, CalculatedCups.ToString());
+                }
+            }
+            return MeasuredIngredientInCups + " cups";
         }
 
-        public decimal CakeFlour(decimal MeasurementInCups)
+        //this gets the number ounces from the MeasuredCups for a specified Ingredient as the parameter in the file specified
+        public string MeasuredCupsToOunces(string IngredientName, decimal MeasuredCups, string filename)
         {
-            var CupRatio = 1m;
-            var OunceRatio = 4m;
-            var NewMeasurementInOunces = (MeasurementInCups / CupRatio) * OunceRatio;
-            return NewMeasurementInOunces; 
+            var ListOfRatios = SplitRatioLinesIntoIngredientVolumeWeightRatios(filename);
+            var RatioedOunces = 0m;
+            var CalculatedOunces = 0m;
+            var MeasuredIngredientInOunces = "";
+            for (int Line = 0; Line < ListOfRatios.Count; Line++)
+            {
+                if (ListOfRatios[Line].Contains(IngredientName))
+                {
+                    RatioedOunces = GetOuncesFromVolumeWeightRatio(filename);
+                    //this is the filename of the file that contains the ratios of the 1 cup measured ingredient : ounces - need to look at this to see if this will impact any of my designs.  
+                    CalculatedOunces = MeasuredCups * RatioedOunces;
+                    MeasuredIngredientInOunces = ConcatRatioArray(IngredientName, CalculatedOunces.ToString()); 
+                }
+            }
+            return MeasuredIngredientInOunces + " ounces"; 
+        }
+        //get the ounces from the IngredientVolume : Weight Ratio in decimal form
+        public decimal GetOuncesFromVolumeWeightRatio(string filename)
+        {
+            var ListOfRatioArrays = SplitRatioLinesIntoIngredientVolumeWeightRatios(filename);
+            var IngredientName = "";
+            var WeightInOunces = "";
+            var ListOfRatios = new List<string[]>();
+            foreach (string[] ratio in ListOfRatioArrays)
+            {
+                IngredientName = ratio[0];
+                WeightInOunces = ratio[1];
+            }
+            return Convert.ToDecimal(WeightInOunces);
         }
     }
 }
+//create a draw method on an interface
+//create class that implement that interface
+//create a factory that generates objects of those classes given specific/required information
+//use the factory to get objects from those by then passing "an information such as type", so basically using an interface as a type
+//for future reference to these specific notes: http://www.tutorialspoint.com/design_pattern/factory_pattern.htm and it provides a good but brief explanation of what's going on as well as exmaple code with the interface and and with classes. 
+
+//IngredientFactory Purpose: 
