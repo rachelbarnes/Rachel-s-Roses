@@ -17,7 +17,7 @@ namespace Roses
         }
         int IGetVolume.GetVolume()
         {
-            var square = new SquareANumber();
+            var square = new GeneralFunctionality();
             return (int)(Math.PI * (square.sqaure(_diameter / 2)) * _depth);
         }
     }

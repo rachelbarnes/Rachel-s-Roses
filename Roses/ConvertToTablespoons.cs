@@ -11,7 +11,7 @@ namespace Roses
         public string ConvertCupsToTablespoons(string MeasurementInCups)
         {
             var Round = new RoundDecimalPlaces();
-            var ToTablespoons = new ConvertToTablespoons();
+            var ToTablespoons = new GeneralFunctionality();
             var Split = new SplitLines();
             string RoundedTablespoonMeasurement = "";
             string[] IngredientLine = Split.SplitLineAtSpaces(MeasurementInCups);
@@ -31,7 +31,7 @@ namespace Roses
         public string ConvertTeaspoonsToTablespoons(string MeasurementInTeaspoons)
         {
             var Round = new RoundDecimalPlaces();
-            var ToTablespoons = new ConvertToTablespoons();
+            var ToTablespoons = new GeneralFunctionality();
             var split = new SplitLines();
             var TeaspoonsToTablespoons = 0m;
             var RoundedTablespoonMeasurement = "";

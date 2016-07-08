@@ -62,14 +62,14 @@ namespace Roses
         [Test]
         public void Percent()
         {
-            var percent = new Percent();
+            var percent = new GeneralFunctionality();
             var actual = percent.percent(20, 100); 
             Assert.AreEqual(20, actual);
         }
         [Test]
         public void Percent2()
         {
-            var percent = new Percent();
+            var percent = new GeneralFunctionality();
             var actual = percent.percent(80, 50); 
             Assert.AreEqual(160, actual);
         }

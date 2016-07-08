@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework; 
+using NUnit.Framework;
 
 namespace Roses
 {
     class CombiningTests
-    {  [Test]
+    {
+        [Test]
         public void AllStringsAttached()
         {
             var combine = new CombineArrays();
             var myIngredientLine = new string[] { "1", "cup", "butter,", "melted" };
-            var combinedLine = "cup butter, melted"; 
+            var combinedLine = "cup butter, melted";
             var actual = combine.CombineArray(myIngredientLine);
             var expected = combinedLine;
-            Assert.AreEqual(expected, actual); 
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public void StillStringsAttached()

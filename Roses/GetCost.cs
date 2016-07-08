@@ -12,6 +12,7 @@ namespace Roses
     {
         public void GetRequest()
         {
+            //this is obviously not working...
 
             string baseURI = "http://api/walmartlabs.com";
             string responderURI = "/{ProductId}/{ProductName}/";//i assume this is the routing api url... api/{controller}/{id} 
@@ -37,37 +38,7 @@ namespace Roses
             //ApiResponder.ContentType = 
             //...https://www.aais.com/Help/75/c_api_call_example.htm
 
-
-
-
-
-
-
-
-
-
-
-            //for what I'm doing right now, I do not think I need to make a web proxy object right now. 
-
-
-            //WebRequest GetWalmartURI = WebRequest.Create(URI);
-            //Stream objectStream = GetWalmartURI.GetResponse().GetResponseStream();
-            //StreamReader objectReader = new StreamReader(objectStream); 
-
-            //string Line = "";
-            //int i = 0; 
-            //while (Line != null)
-            //{
-            //    i++;
-            //    Line = objectReader.ReadLine(); 
-            //    if (Line != null)
-            //    {
-            //        Console.WriteLine("{0}:{1}",i, Line);
-            //    }
-
-
-            //i was using this and copying it from online...if we are considering the condition of the line !being null, why do we have an if here giving another condition in the while statement saying that if the line is null to write int i and the line? 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

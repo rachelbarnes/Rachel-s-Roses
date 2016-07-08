@@ -54,11 +54,12 @@ namespace Roses
             var actual = vol2weight.ConcatRatioArray("Something", 4m.ToString());
             Assert.AreEqual(expected, actual);
         }
+        //for when using the 0048, using this as the filename: @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
         [Test]
         public void ConvertTestOuncesToCups()
         {
             var vol2weight = new VolumeToWeightLogic();
-            var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
             var actual = vol2weight.MeasuredOuncesToCups("flour", 25m, filename);
             var expected = "flour : 5 cups";
             Assert.AreEqual(expected, actual); 
@@ -67,7 +68,7 @@ namespace Roses
         public void ConvertTestCupsToOunces()
         {
             var vol2weight = new VolumeToWeightLogic(); 
-            var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
             var actual = vol2weight.MeasuredCupsToOunces("flour", 3.5m, filename);
             var expected = "flour : 17.5 ounces";
             Assert.AreEqual(expected, actual); 

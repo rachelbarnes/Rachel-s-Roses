@@ -1,6 +1,6 @@
 Dry Ingredients
 flour: 5
-bread flour: 5.5
+bread flour: 5.=
 cake flour: 4.5
 pastry flour: 4.25
 whole wheat flour: 5 
