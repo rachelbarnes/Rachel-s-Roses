@@ -1,20 +1,46 @@
 ﻿using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 
 namespace Roses
 {
+    public class GetIngredientData
+    {
+        public string IngredientName { get; set; }
+        public decimal PricePerOunce { get; set; }
+        public decimal SellingOunces { get; set; }
+
+    }
     public class GetRequestWalmartAPI
     {
+        public async void GetJSONResponse()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://api/walmartlabs.com");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            
+            HttpResponseMessage response = await client.GetAsync("api/products/1");
+            if (response.IsSuccessStatusCode)
+                {
+                    GetIngredientData ingredient = await response.Content.ReadAsStringAsync > GetIngredientPrices >; 
+                }
+        }
+
+
+        
         public void GetRequest()
         {
             //this is obviously not working...
 
-            string baseURI = "http://api/walmartlabs.com";
+            string baseURI = 
             string responderURI = "/{ProductId}/{ProductName}/";//i assume this is the routing api url... api/{controller}/{id} 
             //string responderParameters...
 

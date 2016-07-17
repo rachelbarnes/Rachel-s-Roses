@@ -8,19 +8,20 @@ namespace Roses
 {
     public class Ingredient
     {
+        public string IngredientName { get; set; }
+        public int IngredientID { get; set; }
         public string SellingWeightOfIngredientInOunces { get; set; }
-        public string CostOfIndividualIngredient {get; set;}
+        public string Cost {get; set;}
 
         /*logic of my spreadsheet: 
          - determine how many cups I will need to buy of a certain ingredient, in cups preferably, based on numerous recipes, or a single recipe. 
           - determine the cost per unit sold, which there would most likely be numerous selling amounts that are offered
           - determine the selling unit's weight in ounces
            - based on the ratio of volume to weight, how many items will I need to buy based on how many cups I need, and thus how many ounces I need
-           - what is the estimated cost, which is simply how many of a particular item I need to buy multiplied by the cost per unit sold
+           - what is the estimated cost, which is simply how many of a particular item I need to buy multiplied by the cost per unit sold   DONE
            - aggregate all the prices of all the ingredients to compose a total price for the event I'm working  */
-        public void DeterminePriceByVolumeToWeightRatio(Ingredient ingredient)
-        {
-            
+
+        public Func<Ingredient, decimal> DetermineEstimatedPriceByVolumeToWeightRatio = ingredient => Math.Round(Convert.ToDecimal(ingredient.SellingWeightOfIngredientInOunces) * Convert.ToDecimal(ingredient.Cost)); 
         }
     }
 }

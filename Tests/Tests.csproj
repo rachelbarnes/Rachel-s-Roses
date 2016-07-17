@@ -48,6 +48,7 @@
     <Compile Include="CombiningTests.cs" />
     <Compile Include="ConversionTests.cs" />
     <Compile Include="ConvertFromCandT.cs" />
+    <Compile Include="CostTests.cs" />
     <Compile Include="DecimalPlacesTests.cs" />
     <Compile Include="GeneralTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

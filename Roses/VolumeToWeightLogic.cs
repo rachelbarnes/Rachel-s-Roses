@@ -9,21 +9,14 @@ namespace Roses
     public class VolumeToWeightLogic
     {
         public Func<decimal, decimal> PoundsToOunces = Pounds => Pounds * 16;
-
         public Func<decimal, decimal> OuncesToPounds = Ounces => Ounces / 16;
-
         public Func<decimal, decimal> OuncesToGrams = Ounces => Ounces * 28;
-
         public Func<decimal, decimal> GramsToOunces = Grams => Grams / 28;
-
         public Func<decimal, decimal> GramsToPounds = Grams => (Grams / 28) / 16;
-
         public Func<string, string, string> ConcatRatioArray => (IngredientName, Weight) => IngredientName + " : " + Weight;
 
-
-
         //this gets the number cups from the MeasuredOunces for a specified Ingredient as the parameter in the file specified
-        public string MeasuredOuncesToCups(string IngredientName, decimal MeasuredOunces, string filename)
+        public string ConvertReadMeasuredOuncesToCups(string IngredientName, decimal MeasuredOunces, string filename)
         {
             var SplitRatioData = new SplitLines(); 
             var ListOfRatios = SplitRatioData.SplitVolumeToWeightDatabaseLines(filename);
@@ -43,13 +36,13 @@ namespace Roses
         }
 
         //this gets the number ounces from the MeasuredCups for a specified Ingredient as the parameter in the file specified
-        public string MeasuredCupsToOunces(string IngredientName, decimal MeasuredCups, string filename)
+        public string ConvertReadMeasuredCupsToOunces(string IngredientName, decimal MeasuredCups, string filename)
         {
             var SplitRatioData = new SplitLines(); 
             var ListOfRatios =SplitRatioData.SplitVolumeToWeightDatabaseLines(filename);
             var RatioedOunces = 0m;
             var CalculatedOunces = 0m;
-            var MeasuredIngredientInOunces = "";
+            var ConvertReadMeasuredIngredientInOunces = "";
             for (int Line = 0; Line < ListOfRatios.Count; Line++)
             {
                 if (ListOfRatios[Line].Contains(IngredientName))
@@ -57,10 +50,10 @@ namespace Roses
                     RatioedOunces = GetOuncesFromVolumeWeightRatio(filename);
                     //this is the filename of the file that contains the ratios of the 1 cup measured ingredient : ounces - need to look at this to see if this will impact any of my designs.  
                     CalculatedOunces = MeasuredCups * RatioedOunces;
-                    MeasuredIngredientInOunces = ConcatRatioArray(IngredientName, CalculatedOunces.ToString()); 
+                    ConvertReadMeasuredIngredientInOunces = ConcatRatioArray(IngredientName, CalculatedOunces.ToString()); 
                 }
             }
-            return MeasuredIngredientInOunces + " ounces"; 
+            return ConvertReadMeasuredIngredientInOunces + " ounces"; 
         }
         //get the ounces from the IngredientVolume : Weight Ratio in decimal form
         public decimal GetOuncesFromVolumeWeightRatio(string filename)

@@ -26,16 +26,6 @@ namespace Roses
             var expected = 88m;
             Assert.AreEqual(expected, actual);
         }
-        //[Test]
-        //im not sure why, but this test is failing because only the 'f' in "flour : 5" is the only thing that is being registered. The error says it was "flour : 5", so this does work. 
-        //public void OpenFileAndReadIt()
-        //{
-        //    var read = new Reader(); 
-        //    var filename = @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
-        //    var actual = read.ReadVolumeToWeightDatabase(filename);
-        //    var expected = "flour : 5";
-        //    Assert.AreEqual(expected, actual); 
-        //}
         [Test]
         public void SplitLinesAtColon()
         {
@@ -54,13 +44,12 @@ namespace Roses
             var actual = vol2weight.ConcatRatioArray("Something", 4m.ToString());
             Assert.AreEqual(expected, actual);
         }
-        //for when using the 0048, using this as the filename: @"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
         [Test]
         public void ConvertTestOuncesToCups()
         {
             var vol2weight = new VolumeToWeightLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
-            var actual = vol2weight.MeasuredOuncesToCups("flour", 25m, filename);
+            var actual = vol2weight.ConvertReadMeasuredOuncesToCups("flour", 25m, filename);
             var expected = "flour : 5 cups";
             Assert.AreEqual(expected, actual); 
         }
@@ -69,7 +58,7 @@ namespace Roses
         {
             var vol2weight = new VolumeToWeightLogic(); 
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestingConversionFromCupsToOunces.txt";
-            var actual = vol2weight.MeasuredCupsToOunces("flour", 3.5m, filename);
+            var actual = vol2weight.ConvertReadMeasuredCupsToOunces("flour", 3.5m, filename);
             var expected = "flour : 17.5 ounces";
             Assert.AreEqual(expected, actual); 
         }

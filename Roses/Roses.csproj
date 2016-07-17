@@ -60,7 +60,6 @@
     <Compile Include="PanVolumes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplitLines.cs" />
-    <Compile Include="VolumeToWeightDictionary.cs" />
     <Compile Include="VolumeToWeightLogic.cs" />
   </ItemGroup>
   <ItemGroup>
