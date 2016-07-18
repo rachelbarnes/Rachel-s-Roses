@@ -10,6 +10,8 @@ namespace Roses
     {
         public static string Key = "";
 
-        public static string test = "Another quick test before I commit something else";  
+        public static string test = "Another quick test before I commit something else";
+
+        public string oneMore = "something else"; 
     }
 }
