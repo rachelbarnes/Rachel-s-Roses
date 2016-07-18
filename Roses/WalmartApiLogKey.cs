@@ -8,6 +8,8 @@ namespace Roses
 {
     public class WalmartApiLogKey
     {
-        public static string Key = "3x63gdbxjyj6ewjpq9ns4trf"; 
+        public static string Key = "";
+
+        public static string test = "Another quick test before I commit something else";  
     }
 }
