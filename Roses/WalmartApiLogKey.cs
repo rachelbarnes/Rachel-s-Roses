@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Roses
 {
-    class WalmartApiLogKey
+    public class WalmartApiLogKey
     {
+        public static string Key = "3x63gdbxjyj6ewjpq9ns4trf"; 
     }
 }

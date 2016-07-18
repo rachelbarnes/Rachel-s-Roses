@@ -9,10 +9,12 @@ namespace Roses
     [TestFixture]
     public class CostTests
     {
-        [Test]
-        public void TestingEestimatedCost()
-        {
-
-        }
+        //[Test]
+        ////public void TestingRequestedIngredientName()
+        //{
+        //    var cost = new IngredientCost(); 
+        //    var expected = "Pillsbury Flour"; 
+        //    var actual = cost.
+        //}
     }
 }
