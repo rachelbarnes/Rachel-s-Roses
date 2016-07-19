@@ -1,16 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
-//using System.Runtime.Serialization; 
 
 namespace Roses
 {
+    [DataContract]
+    public class SearchResponse
+    {
+        [DataMember(Name = "items")]
+        public List<ItemResponse> Items { get; set; }
+    }
+
+    [DataContract]
+    public class ItemResponse
+    {
+        [DataMember(Name = "salePrice")]
+        public decimal SalePrice { get; set; }
+
+        [DataMember(Name = "name")]
+        public string Name { get; set; }
+
+        [DataMember(Name = "itemId")]
+        public int ItemId { get; set; }
+    }
+
     //need to rewrite this! Need to understand this!
+    /*
+      needed componenets: 
+      HttpWebRequest
+      HttpWebResponse
+      DataContracts
+      Search Request
+      Search Response
+    */
     public class GetIngredientResponse
     {
         public void FindAndPrint(string name, string size, int divisorPricePerOunce)
@@ -18,7 +46,6 @@ namespace Roses
             var searchRequest = buildSearchRequest(name);
             var items = MakeRequest<SearchResponse>(searchRequest).Items;//"shuttles" this value into the MakeRequest
             var certainSize = items.Where(item => item.Name.ToLower().Contains(size));
-            PrintItem(certainSize.First(), divisorPricePerOunce);
         }
 
         public static void PrintItem(ItemResponse response, int divisorPricePerOunce)
@@ -53,27 +80,8 @@ namespace Roses
             }
         }
     }
-
-    [DataContract]
-    public class SearchResponse
-    {
-        [DataMember(Name = "items")]
-        public List<ItemResponse> Items { get; set; }
-    }
-
-    [DataContract]
-    public class ItemResponse
-    {
-        [DataMember(Name = "salePrice")]
-        public decimal SalePrice { get; set; }
-
-        [DataMember(Name = "name")]
-        public string Name { get; set; }
-
-        [DataMember(Name = "itemId")]
-        public int ItemId { get; set; }
-    }
 }
+
 
 ///*the casting with the generic type:
 //        casting it into the method signature allows it to be the return type. you have to cast it for hte jsonSerializer above, which also casts it for the return type to match the return type in the signature. 

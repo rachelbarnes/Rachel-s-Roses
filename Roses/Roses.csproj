@@ -51,13 +51,14 @@
     <Compile Include="AdjustRecipe.cs" />
     <Compile Include="CombineArrays.cs" />
     <Compile Include="ConvertToTablespoons.cs" />
+    <Compile Include="PriceLogic.cs" />
     <Compile Include="GetIngredientResponse.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="mo1.cs" />
     <Compile Include="RoundDecimalPlaces.cs" />
     <Compile Include="GeneralFunctionality.cs" />
-    <Compile Include="Reader.cs" />
+    <Compile Include="ReaderAndWriter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PanVolumes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

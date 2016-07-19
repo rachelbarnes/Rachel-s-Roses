@@ -16,7 +16,7 @@ namespace Roses
         public List<string[]> SplitVolumeToWeightDatabaseLines(string filename)
         {
             var ReadMyFile = new Reader();
-            var RatioDatabase = ReadMyFile.ReadVolumeToWeightDatabase(filename);
+            var RatioDatabase = ReadMyFile.ReadDatabase(filename);
             var ListOfRatios = new List<string[]>();
             var VolumeToWeightRatio= new string[] { }; 
             foreach (var ratio in RatioDatabase)
