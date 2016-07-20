@@ -1,0 +1,4 @@
+## Setup
+it's important to ignore the api key files from being commited into the repo
+run this command to ignore the apilogkey:
+	* `git update-index --assume-unchanged Roses/WalmartApiLogKey.cs`
