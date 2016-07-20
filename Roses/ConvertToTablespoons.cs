@@ -14,7 +14,7 @@ namespace Roses
             var ToTablespoons = new GeneralFunctionality();
             var Split = new SplitLines();
             string RoundedTablespoonMeasurement = "";
-            string[] IngredientLine = Split.SplitLineAtSpaces(MeasurementInCups);
+            string[] IngredientLine = Split.SplitLineAtSpace(MeasurementInCups);
             //there's something about CupsToTablespoonMeasurement - this is where I am getting the error in the stack trace in all of my failing tests that use this method 
             decimal CupsToTablespoonMeasurement = ToTablespoons.CupsToTablespoons(Convert.ToDecimal(IngredientLine[0]));
             if (CupsToTablespoonMeasurement == 1m)
@@ -35,7 +35,7 @@ namespace Roses
             var split = new SplitLines();
             var TeaspoonsToTablespoons = 0m;
             var RoundedTablespoonMeasurement = "";
-            var IngredientLine = split.SplitLineAtSpaces(MeasurementInTeaspoons);
+            var IngredientLine = split.SplitLineAtSpace(MeasurementInTeaspoons);
 
             TeaspoonsToTablespoons = ToTablespoons.TeaspoonsToTablespoons(Convert.ToDecimal(IngredientLine[0]));
             if (TeaspoonsToTablespoons == 1m)
@@ -55,7 +55,7 @@ namespace Roses
             var split = new SplitLines();
             var TablespoonsMeasurement = 0m;
             var RoundedTablespoonMeasurement = "";
-            var IngredientLine = split.SplitLineAtSpaces(Measurement);
+            var IngredientLine = split.SplitLineAtSpace(Measurement);
 
             TablespoonsMeasurement = Convert.ToDecimal(IngredientLine[0]);
             if (TablespoonsMeasurement == 1m)

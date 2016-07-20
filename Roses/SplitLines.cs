@@ -8,7 +8,7 @@ namespace Roses
 {
     public class SplitLines
     {
-        public Func<string, string[]> SplitLineAtSpaces = line => line.Split(' ');
+        public Func<string, string[]> SplitLineAtSpace = line => line.Split(' ');
         public Func<string, char, string[]> SplitLineAtSpecifiedCharacter = (line, character) => line.Split(character);
         public Func<string, string[]> SplitLineAtColon = line => line.Split(':'); 
  

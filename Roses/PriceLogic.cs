@@ -12,52 +12,36 @@ namespace Roses
         public Func<decimal, decimal, decimal> PricePerPound = (price, weightInLbs) => Decimal.Round((price / weightInLbs), 3);
         public Func<decimal, decimal, decimal> PricePerOunce = (price, weightInOz) => Decimal.Round((price / weightInOz), 3); 
         public Func<decimal, decimal, decimal> PricePerOunceFromPound = (price, weightInLbs) => Decimal.Round(price / (weightInLbs / 16), 3);
-
-        public static Func<string, string, decimal, decimal, decimal> DeterminePriceForStandardMeasuredIngredient
-            = (name, sizeBoughtInPounds, ouncesPerStandard, price) => (ouncesPerStandard / (Convert.ToDecimal(sizeBoughtInPounds) * 16)) * price;
-
-        /*
-         To do next:
-            get price per ounce
-                will have to know if item is sold in pounds/gallons/ounces, and do logic to determine price per ounce
-            multiply price per ounce by how many ounces of an ingredient i used
-
-        */
-        public bool IsStringNumericValue(string IsNumber)
-        {
-            int output;
-            bool isStringNumeric = int.TryParse(IsNumber, out output); 
-            if (isStringNumeric == true)
-            {
-                return true; 
-            }
-            else
-            {
-                return false; 
-            }
-        }
-        public decimal ConvertToOunces(string ProductName)
-        {
-            if ((ProductName.ToLower()).Contains("lb") || (ProductName.ToLower().Contains("pound")))
-               {
-
-                }        
-            "oz"
-                "gallons"
-                "pint"
-                "egg"
-
-        public void DetermineIfNameHasLbs(string Ingredient)
-        {
-            //Pillsbury Flour 10 lb
-        }
+        public Func<decimal, decimal> ConvertPoundsToOunces = lbs => lbs * 16; 
 
 
 
+        //public static Func<string, string, decimal, decimal, decimal> DeterminePriceForStandardMeasuredIngredient
+        //    = (name, sizeBoughtInPounds, ouncesPerStandard, price) => (ouncesPerStandard / (Convert.ToDecimal(sizeBoughtInPounds) * 16)) * price;
 
+        ///*
+        // To do next:
+        //    get price per ounce
+        //        will have to know if item is sold in pounds/gallons/ounces, and do logic to determine price per ounce
+        //    multiply price per ounce by how many ounces of an ingredient i used
 
+        //*/
+        //public decimal ConvertToOunces(string ProductName)
+        //{
+        //    var convertToOunces = new GeneralFunctionality(); 
+        //    if ((ProductName.ToLower()).Contains("lb") || (ProductName.ToLower().Contains("pound")))
+        //       {
 
+        //        }        
+        //    "oz"
+        //        "gallons"
+        //        "pint"
+        //        "egg"
 
+        //public void DetermineIfNameHasLbs(string Ingredient)
+        //{
+        //    //Pillsbury Flour 10 lb
+        //}
 
 
         //public static decimal PricePerOunceUsed(string Ingredient, string MeasuredCups, string filename)

@@ -13,30 +13,77 @@ namespace Roses
         public Func<decimal, decimal> CupsToTablespoons = cups => cups * 16;
         public Func<decimal, decimal> TeaspoonsToTablespoons = teaspoons => teaspoons / 3;
         public Func<decimal, decimal> TablespoonsToCup = tablespoons => tablespoons / 16;
-        public Func<decimal, decimal> TablespoonsToTeaspoons = tablespoons => tablespoons * 3; 
+        public Func<decimal, decimal> TablespoonsToTeaspoons = tablespoons => tablespoons * 3;
         public Func<decimal, decimal> PoundsToOunces = Pounds => Pounds * 16;
         public Func<decimal, decimal> OuncesToPounds = Ounces => Ounces / 16;
         public Func<decimal, decimal> OuncesToGrams = Ounces => Ounces * 28;
         public Func<decimal, decimal> GramsToOunces = Grams => Grams / 28;
         public Func<decimal, decimal> GramsToPounds = Grams => (Grams / 28) / 16;
-        public Func<decimal, decimal, decimal> SimpleDivision = (a, b) => a / b; 
+        //GallonstoOz
 
+        public Func<decimal, decimal, decimal> SimpleDivision = (a, b) => a / b;
 
-        public decimal CalculateDecimalFromFraction(string fraction)
+        public bool IsStringNumericValue(string IsNumber)
+        {
+            int output;
+            bool isStringNumeric = int.TryParse(IsNumber, out output);
+            if (isStringNumeric == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public decimal CalculateProperFraction(string fraction)
         {
             var split = new SplitLines();
             var SplitFractionAtSlash = split.SplitLineAtSpecifiedCharacter(fraction, '/');
-            var numerator = Convert.ToDecimal(SplitFractionAtSlash[0]);
-            var denominator = Convert.ToDecimal(SplitFractionAtSlash[1]);
-            var calculatedDecimal = numerator / denominator;
-            if (calculatedDecimal.ToString().Count() > 3)
+            var NumeratorString = SplitFractionAtSlash[0];
+            var DenominatorString = SplitFractionAtSlash[1];
+            var CalculatedDecimal = 0m;
+            if ((IsStringNumericValue(NumeratorString) && IsStringNumericValue(DenominatorString)) == true)
             {
-                return Decimal.Round((numerator / denominator), 3);
+                var Numerator = Convert.ToDecimal(NumeratorString);
+                var Denominator = Convert.ToDecimal(DenominatorString);
+                CalculatedDecimal = Numerator / Denominator;
             }
-            else
-                return calculatedDecimal; 
+            return CalculatedDecimal;
+        }
+        public decimal CalculateImproperFraction(string fraction)
+        {
+            var split = new SplitLines();
+            var SplitWholeNumberInFraction = split.SplitLineAtSpace(fraction);
+            var SplitFractionAtSlash = split.SplitLineAtSpecifiedCharacter(SplitWholeNumberInFraction[1], '/'); 
+            var CalculatedDecimal = 0m;
+            var WholeNumberString = SplitWholeNumberInFraction[0];
+            var NumeratorString = SplitFractionAtSlash[0];
+            var DenominatorString =SplitFractionAtSlash[1];
+            if ((IsStringNumericValue(WholeNumberString) && IsStringNumericValue(NumeratorString) && IsStringNumericValue(DenominatorString)) == true)
+            {
+                var WholeNumber = Convert.ToDecimal(WholeNumberString);
+                var Numerator = Convert.ToDecimal(NumeratorString);
+                var Denominator = Convert.ToDecimal(DenominatorString);
+                var ProperFractionNumerator = (WholeNumber * Denominator) + Numerator;
+                CalculatedDecimal = (decimal)ProperFractionNumerator / (decimal)Denominator;
+            }
+            return CalculatedDecimal;
         }
 
+        public decimal CalculateDecimalFromFraction(string fraction)
+        {
+            var CalculatedDecimal = 0m;
+            if (fraction.Contains(' '))
+            {
+                CalculatedDecimal = CalculateImproperFraction(fraction);//what happens if the fraction is not convertible to numbers? 
+            }
+            if (!fraction.Contains(' '))
+            {
+                CalculatedDecimal = CalculateProperFraction(fraction);
+            }
+            return CalculatedDecimal;
+        }
     }
 }
 
