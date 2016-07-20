@@ -41,12 +41,19 @@ namespace Roses
     */
     public class GetIngredientResponse
     {
-        public void FindAndPrint(string name, string size, int divisorPricePerOunce)
+        public string GetItemResponseAndFormatIntoString(string IngredientName, string IngredientSellingSize)
         {
-            var searchRequest = buildSearchRequest(name);
-            var items = MakeRequest<SearchResponse>(searchRequest).Items;//"shuttles" this value into the MakeRequest
-            var certainSize = items.Where(item => item.Name.ToLower().Contains(size));
+            var format = new Writer(); 
+            var write = new Writer(); 
+            //var ResponseDatabaseFile = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; 
+            var items = MakeRequest<SearchResponse>(buildSearchRequest(IngredientName)).Items;
+            var certainSize = items.Where(item => item.Name.ToLower().Contains(IngredientSellingSize));
+            var firstItem = items.First();
+            var response = format.FormatString(firstItem);
+            return response; 
+            //write.WriteLineToFile(ResponseDatabaseFile, firstItem);
         }
+   
 
         public static void PrintItem(ItemResponse response, int divisorPricePerOunce)
         {

@@ -21,8 +21,11 @@ namespace Roses
             var VolumeToWeightRatio= new string[] { }; 
             foreach (var ratio in RatioDatabase)
             {
+                if (ratio.Contains(':'))
+                {
                 VolumeToWeightRatio = SplitLineAtColon(ratio);
                 ListOfRatios.Add(VolumeToWeightRatio); 
+                }
             }
             return ListOfRatios; 
         }

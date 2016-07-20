@@ -12,8 +12,6 @@ namespace Roses
         public Func<decimal, decimal, decimal> PricePerPound = (price, weightInLbs) => Decimal.Round((price / weightInLbs), 3);
         public Func<decimal, decimal, decimal> PricePerOunce = (price, weightInOz) => Decimal.Round((price / weightInOz), 3); 
         public Func<decimal, decimal, decimal> PricePerOunceFromPound = (price, weightInLbs) => Decimal.Round(price / (weightInLbs / 16), 3);
-        public Func<decimal, decimal> ConvertPoundsToOunces = lbs => lbs * 16; 
-
 
 
         //public static Func<string, string, decimal, decimal, decimal> DeterminePriceForStandardMeasuredIngredient
@@ -44,24 +42,30 @@ namespace Roses
         //}
 
 
+
+
+
+
         //public static decimal PricePerOunceUsed(string Ingredient, string MeasuredCups, string filename)
         //{
         //    var CalculateOunces = new VolumeToWeightLogic();
         //    var response = new ItemResponse();
         //    var priceForItem = response.SalePrice;
         //    var standardOunceForIngredient = CalculateOunces.ReadOuncesForIngredient(Ingredient, filename);
-        //    var measuredOunces = CalculateOunces.GetAmountOfOuncesUsed(Ingredient, MeasuredCups, filename); 
+        //    var measuredOunces = CalculateOunces.GetAmountOfOuncesUsed(Ingredient, MeasuredCups, filename);
         //}
 
 
 
 
 
-
-
-
-        public static decimal DeterminePriceForOuncesUsed(string Ingredient, string MeasuredCups, string filename)
+        //print response database and work off that
+        //get price for 1 cup of ingredient
+        //determine percent of standard based on how many cups (just multiply the ounces by the measured cups)
+        public  decimal DeterminePriceForOuncesUsed(string Ingredient, string MeasuredCups, string filename)
         {
+
+            //this is just a super long way of saying when I use 2 1/2 c of flour, i use 2.5x the standard amount... 
             var GetOunces = new VolumeToWeightLogic(); 
             var response = new ItemResponse();
             var price = response.SalePrice;

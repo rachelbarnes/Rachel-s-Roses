@@ -39,6 +39,18 @@ namespace Roses
             return currentIngredient; 
         }
 
+        //public List<string> GetAllIngredientNamesFromRatioDatabase(string filename)
+        //{
+        //    var vw = new VolumeToWeightLogic();
+        //    var ListOfRatios = vw.ReadRatiosFromRatioDatabase(filename);
+        //    foreach (var ratio in ListOfRatios)
+        //    {
+                
+        //    }
+        //    var CompiledListIngredients = new List<string>(); 
+            
+        //}
+
         public decimal ReadOuncesForIngredient(string Ingredient, string filename)
         {
             var vw = new VolumeToWeightLogic();

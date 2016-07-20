@@ -19,9 +19,12 @@ namespace Roses
         public Func<decimal, decimal> OuncesToGrams = Ounces => Ounces * 28;
         public Func<decimal, decimal> GramsToOunces = Grams => Grams / 28;
         public Func<decimal, decimal> GramsToPounds = Grams => (Grams / 28) / 16;
-        //GallonstoOz
+        public Func<decimal, decimal> ConvertPoundsToOunces = lbs => lbs * 16;
+        public Func<decimal, decimal> ConvertFromPintsToOunces = pt => pt * 16;
+        public Func<decimal, decimal> ConvertFromQuartToOunces = qt => qt * 32;
+        public Func<decimal, decimal> ConvertFromGallonsToOunces = gall => gall * 128; 
 
-        public Func<decimal, decimal, decimal> SimpleDivision = (a, b) => a / b;
+        public Func<decimal, decimal, decimal> SimpleDivision = (a, b) => Decimal.Round((a / b), 3);
 
         public bool IsStringNumericValue(string IsNumber)
         {
@@ -70,7 +73,6 @@ namespace Roses
             }
             return CalculatedDecimal;
         }
-
         public decimal CalculateDecimalFromFraction(string fraction)
         {
             var CalculatedDecimal = 0m;
@@ -81,6 +83,10 @@ namespace Roses
             if (!fraction.Contains(' '))
             {
                 CalculatedDecimal = CalculateProperFraction(fraction);
+            }
+            if (CalculatedDecimal.ToString().Length > 3)
+            {
+                return Decimal.Round(CalculatedDecimal, 3); 
             }
             return CalculatedDecimal;
         }

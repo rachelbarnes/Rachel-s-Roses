@@ -11,13 +11,22 @@ namespace Roses
     {
         static void Main(string[] args)
         {
-            var vw = new VolumeToWeightLogic();
-            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\VolumeToWeightIngredientData.txt";
-            Console.WriteLine(vw.GetAmountOfOuncesUsed("sugar, granulated", "3/4", filename));
-            Console.WriteLine(vw.GetAmountOfOuncesUsed("butter", "1.5", filename));
-            Console.WriteLine(vw.GetAmountOfOuncesUsed("vanilla extract", ".1", filename));
-            Console.WriteLine(vw.GetAmountOfOuncesUsed("flour", "2.5", filename));
+            var read = new Reader();
+            var RatioDatabaseList = (read.ReadDatabase(@"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\VolumeToWeightIngredientData.txt"));
+            var ResponseDatabase = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; 
+            foreach (var ratio in RatioDatabaseList)
+            {
+                Console.WriteLine(ratio); 
+            }
+            Console.WriteLine(RatioDatabaseList.Count());
+
+            var write = new Writer();
+            write.WriteLineToFile(ResponseDatabase);
             Console.ReadLine(); 
+
+
+
+
             //var WriteToDatabase = new Writer();
             //var TestResponse = new ItemResponse();
             //TestResponse.Name = "Whole Wheat Flour"; 
