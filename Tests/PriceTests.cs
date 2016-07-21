@@ -52,8 +52,8 @@ namespace Roses
         //}
         //you don't want to put the MakeRequset or calling to a website in your tests... tight coupling, can't work without internet, can deplete your usage rights to their website, someone can get access to your key...
 
-      
-        [Test] 
+
+        [Test]
         public void TestingDataStructures()
         {
             var testResponse = new ItemResponse();
@@ -61,16 +61,82 @@ namespace Roses
             testResponse.Name = "Flour";
             testResponse.ItemId = 27;
             testResponse.SalePrice = 4m;
-            var actual = write.FormatString(testResponse); 
+            var actual = write.FormatString(testResponse);
             var expected = "Flour: ITEM PRICE: $4: ITEM ID: 27";
             Assert.AreEqual(expected, actual);
         }
-        //[Test]
-        //public void GetPercentForMeasuredCupsToStandardOunces()
-        //{
-        //    var per = new PriceLogic();
-        //    var expected = 3.25m;
-        //    var accepted = per.DeterminePriceForOuncesUsed("flour", )
-        //}
+        [Test]
+        public void TestGetChoppedWalnutPrice()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 11.98m;
+            var actual = getprice.GetPriceForIndividualIngredient("chopped walnuts", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void TestGetCinnamonPrice()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 2.44m;
+            var actual = getprice.GetPriceForIndividualIngredient("cinnamon", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void TestGetRedStarYeast()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 4.62m;
+            var actual = getprice.GetPriceForIndividualIngredient("yeast", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void TestGetAllPurposeFlourPrice()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 3.98m;
+            var actual = getprice.GetPriceForIndividualIngredient("all purpose flour", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void GetPriceForCakeFlour()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 3.28m;
+            var actual = getprice.GetPriceForIndividualIngredient("cake flour", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void GetPriceForOats()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 2.48m;
+            var actual = getprice.GetPriceForIndividualIngredient("oats", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void GetPriceForMiniChocolateChips()
+        {
+            var getprice = new PriceLogic();
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expected = 2.71m;
+            var actual = getprice.GetPriceForIndividualIngredient("mini morsels", filename);
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void GetPricePerOunceForFlour()
+        {
+            var getprice = new PriceLogic();
+            var ratioDatabase = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\VolumeToWeightIngredientData.txt";
+            var responseDatabase = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; ;
+            var expected = .103m;
+            var actual = getprice.GetPriceForOneOunceOfIngredient("cake flour", ratioDatabase, responseDatabase);
+            Assert.AreEqual(expected, actual); 
+                }
     }
 }

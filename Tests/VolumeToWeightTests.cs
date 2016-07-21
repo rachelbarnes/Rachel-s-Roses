@@ -76,12 +76,21 @@ namespace Roses
             Assert.AreEqual(expected, actual); 
         }
         [Test]
+        public void ReadPowderedSugarOunces()
+        {
+            var vw = new VolumeToWeightLogic(); 
+            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\VolumeToWeightIngredientData.txt";
+            var expected = 4.4m;
+            var actual = vw.ReadOuncesForIngredient("powdered sugar", filename);
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
         public void ReadOuncesForWhiteSugar()
         {
             var vw = new VolumeToWeightLogic(); 
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\VolumeToWeightIngredientData.txt";
             var expected = 7.1m;
-            var actual = vw.ReadOuncesForIngredient("sugar, granulated", filename);
+            var actual = vw.ReadOuncesForIngredient("white sugar", filename);
             Assert.AreEqual(expected, actual); 
         }
         [Test]

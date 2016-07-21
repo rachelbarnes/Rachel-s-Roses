@@ -6,17 +6,18 @@ pastry flour: 4.25
 whole wheat flour: 5 
 coarse cornmeal: 4.85
 fine cornmeal: 6.3
-sugar, granulated: 7.1 
-sugar, brown: 7.75
-sugar, powdered, sifted: 3.6 
-sugar, powdered, unsifted: 4.4
+white sugar: 7.1 
+brown sugar: 7.75
+powdered sugar sifted: 3.6 
+powdered sugar: 4.4
 milk powder: 4.4
 cocoa powder: 4.16
 baking soda: 8.57
 baking powder:8.4
 salt: 10.72
-general spices: 4.4 
+cinnamon: 4.4 
 yeast, active dry: 5.49 
+**cinnamon substitutes as general spices
 
 Wet Ingredients
 vegetable oil: 7.7
@@ -30,7 +31,7 @@ cream cheese: 8.2
 sour cream: 8.6
 honey: 12
 yogurt: 8.6
-heavy cream: 8.4
+heavy whipping cream: 8.4
 water: 8
 
 Fruits, Nuts and Chocolate Chips

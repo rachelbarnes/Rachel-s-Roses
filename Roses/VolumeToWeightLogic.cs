@@ -13,6 +13,8 @@ namespace Roses
         public List<string> ReadRatiosFromRatioDatabase(string filename)
         {
             var read = new Reader();
+
+
             var splitRatio = new SplitLines();
             var MyRatioDatabase = read.ReadDatabase(filename);
             var ArrayRatioDatabase = new List<string>();
@@ -46,7 +48,7 @@ namespace Roses
         //    foreach (var ratio in ListOfRatios)
         //    {
                 
-        //    }
+        //    }UnalteredResponseDatabase
         //    var CompiledListIngredients = new List<string>(); 
             
         //}

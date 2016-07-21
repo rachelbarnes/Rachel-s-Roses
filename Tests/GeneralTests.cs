@@ -143,16 +143,16 @@ namespace Roses
             var actual = test.IsStringNumericValue("11.98");
             Assert.AreEqual(expected, actual); 
         }
-        [Test]
-        public void TestResponseDatabaseVSRealResponseDatabase()
-        {
-            var readDatabase = new Reader();
-            var TestDatabaseFilename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestItemResponseDatabase.txt";
-            var RealDatabaseFilename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
-            var expectedDatabase = readDatabase.GetAllIngredientNamesAndPricesFromResponseDatabase(TestDatabaseFilename);
-            var actualDatabase = readDatabase.GetAllIngredientNamesAndPricesFromResponseDatabase(RealDatabaseFilename);
-            Assert.AreEqual(expectedDatabase, actualDatabase);  
-        }
+        //[Test]
+        //public void TestResponseDatabaseVSRealResponseDatabase()
+        //{
+        //    var readDatabase = new PriceLogic();
+        //    var TestDatabaseFilename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestItemResponseDatabase.txt";
+        //    var RealDatabaseFilename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+        //    var expectedDatabase = readDatabase.GetAllIngredientNamesAndPricesFromResponseDatabase(TestDatabaseFilename);
+        //    var actualDatabase = readDatabase.GetAllIngredientNamesAndPricesFromResponseDatabase(RealDatabaseFilename);
+        //    Assert.AreEqual(expectedDatabase, actualDatabase);  
+        //}
     }
 }
 

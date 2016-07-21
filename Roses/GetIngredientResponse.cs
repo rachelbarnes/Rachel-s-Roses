@@ -30,6 +30,7 @@ namespace Roses
         public int ItemId { get; set; }
     }
 
+
     //need to rewrite this! Need to understand this!
     /*
       needed componenets: 

@@ -33,7 +33,7 @@ namespace Roses
             var myArray = new string[] { "this", "that" };
             var actual = myArray.Count();
             var expected = 2;
-            Assert.AreEqual(expected, actual); 
+            Assert.AreEqual(expected, actual);
         }
         //[Test]
         ////this test is failing, but oddly enough it's the expected that's causing it to fail. It says the expdcted is 'V', but the actual is "Volume To Weight Data Sheet" which is what I was expecting... 
@@ -78,51 +78,15 @@ namespace Roses
             var actual = vol2weight.ConcatRatioArray("Something", 4m.ToString());
             Assert.AreEqual(expected, actual);
         }
-        [Test]
-        public void TestNumberOfStringInDatabaseArray()
+        [Test] //why is this taking only the first character of the first string in the array? 
+        public void FormatStringWithExtraColon()
         {
-            var split = new Reader();
-            var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
-            var array = new string[] {"Pillsbury All Purpose Flour 10Lb", "$3.98" }; 
-            var expected = array;
-            var actual = split.GetAllIngredientNamesAndPricesFromResponseDatabase(filename);
+            var split = new SplitLines();
+            var test = "This: That: This other thing: That other things: And this over there";
+            var expected = new string[] { " That", " That other things" }; 
+            var actual = split.ExtraColonInString(test);
             Assert.AreEqual(expected, actual); 
         }
-        [Test]
-        public void TestGetChoppedWalnutPrice()
-        {
-            var getprice = new Reader(); 
-            var filename =  @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
-            var expected = 11.98m;
-            var actual = getprice.GetPriceForIndividualIngredient("chopped walnuts", filename);
-            Assert.AreEqual(expected, actual); 
-        }
-        [Test]
-        public void TestGetCinnamonPrice()
-        {
-            var getprice = new Reader(); 
-            var filename =  @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
-            var expected = 11.98m;
-            var actual = getprice.GetPriceForIndividualIngredient("cinnamon", filename);
-            Assert.AreEqual(expected, actual); 
-        }
-        //[Test]//while this test is failing, it is still getting 34 elements to the list (as of 7.20.16). It is outputting all of the IngredentName, IngredientPrice arrays, which was the test's purpose. 
-        //public void TestReturnedListOfIngredientNameAndPrice()
-        //{
-        //    var getArrays = new Reader();
-        //    var TestArray = new string[] { "whole wheat flour", "3.98" };
-        //    var TestArray2 = new string[] { "chopped nuts", "11.98" };
-        //    var TestArray3 = new string[] { "all purpose flour", "3.49" };
-        //    var TestArray4 = new string[] { "cinnamon", "4.87" }; 
-        //    var filename =  @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
-        //    var TestList = new List<string[]>();
-        //    TestList.Add(TestArray);
-        //    TestList.Add(TestArray2);
-        //    TestList.Add(TestArray3);
-        //    TestList.Add(TestArray4); 
-        //    var actual = getArrays.GetAllIngredientNamesAndPricesFromResponseDatabase(filename);
-        //    Assert.AreEqual(TestList, actual); 
-        //}
     }
 }
 

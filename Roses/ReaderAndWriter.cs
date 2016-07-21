@@ -56,61 +56,13 @@ namespace Roses
             }
             return CompiledDatabase;
         }
-        public List<string[]> GetAllIngredientNamesAndPricesFromResponseDatabase(string ResponseDatabaseFilename)
-        {
-            var split = new SplitLines();
-            var ListOfFormattedItemResponses = ReadDatabase(ResponseDatabaseFilename);
-            var SplitResponse = new string[] { };
-            var IngredientName = "";
-            var IngredientPrice = "";
-            var IngredientNamePriceArray = new string[] { IngredientName, IngredientPrice };
-            var ListOfNamePriceArrays = new List<string[]>();
-            foreach (var FormattedItemResponses in ListOfFormattedItemResponses)
-            {
-                SplitResponse = split.SplitLineAtColon(FormattedItemResponses);
-                IngredientName = SplitResponse[0];
-                IngredientPrice = SplitResponse[2];
-                IngredientNamePriceArray[0] = IngredientName;
-                IngredientNamePriceArray[1] = IngredientPrice;
-                ListOfNamePriceArrays.Add(IngredientNamePriceArray);
-            }
-            return ListOfNamePriceArrays;//INTERESTING - each of the 34 arrays in this list are the chopped walnuts... for what reason, i don't know. 
-            //this is only getting walnuts ... tried it with cinnamon, but the math/logic/code below works0
-        }
-
-        //public string[] GetI
-        public decimal GetPriceForIndividualIngredient(string Ingredient, string ResponseDatabaseFilename)
-        {
-            var split = new SplitLines();
-            var numericStringToDecimal = new GeneralFunctionality();
-            var ResponseDatabase = GetAllIngredientNamesAndPricesFromResponseDatabase(ResponseDatabaseFilename);
-            var CurrentNamePriceArray = new string[] { };
-            var IngredientName = "";
-            var IngredientPrice = "";
-            var IngredientPriceDecimal = 0m;
-            for (int IngredientNamePriceArray = 0; IngredientNamePriceArray < ResponseDatabase.Count(); IngredientNamePriceArray++)
-            {
-                if (ResponseDatabase[0][IngredientNamePriceArray].ToLower().Contains(Ingredient.ToLower()))
-                {
-                    CurrentNamePriceArray = ResponseDatabase[IngredientNamePriceArray];
-                    IngredientName = CurrentNamePriceArray[0];
-                    IngredientPrice = CurrentNamePriceArray[1];
-                    var SplitPriceArray = split.SplitLineAtSpecifiedCharacter(IngredientPrice, '$');
-                    var DecimalPriceString = SplitPriceArray[1];
-                    if (numericStringToDecimal.IsStringNumericValue(DecimalPriceString) == true)
-                    {
-                        IngredientPriceDecimal = Convert.ToDecimal(SplitPriceArray[1]);
-                    }
-                }
-            }
-            return IngredientPriceDecimal;
-        }
     }
 
     public class Writer
     {
-        public Func<ItemResponse, string> FormatString = response => String.Format("{0}: ITEM PRICE: ${1}: ITEM ID: {2}", response.Name, response.SalePrice, response.ItemId);
+        public Func<ItemResponse, string> FormatString = response => String.Format("{0}: ITEM PRICE: ${1}: ITEM ID: {2}", response.Name, response.SalePrice, response.ItemId);  
 
+        public Func<ItemResponse, string> FormatStringWithExtraColon = response => String.Format("{0}: ITEM PRICE: ${1}: ITEM ID: {2}", response.Name, response.SalePrice, response.ItemId); 
         public void WriteLineToFile(string ResponseDatabase)//, ItemResponse response)
         {
             var ListOfResponses = ListOfItemResponseRequests();
@@ -125,7 +77,6 @@ namespace Roses
                 {
                     foreach (var formattedResponse in ListOfResponses)
                     {
-
                         if (!ResponseDatabase.Contains(formattedResponse))
                         {
                             MyDatabase.WriteLine(formattedResponse);
@@ -146,9 +97,7 @@ namespace Roses
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("whole wheat flour", "5 lb"));
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("bread flour", "5 lb"));
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("Pillsbury Softasilk", "32 oz"));
-            ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("pastry flour", "5 lb"));
-            ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("coarse grind cornmeal", "24 oz"));
-            ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("granulated sugar", "4 lb"));
+            ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("white sugar", "4 lb"));
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("brown sugar", "2 lb"));
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("powdered sugar", "2 lb"));
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("milk powder", "64 oz"));
@@ -172,7 +121,7 @@ namespace Roses
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("honey", "32 oz"));
             //ListOfResponses.Add(//GetItemResponseData.GetItemResponseAndFormatIntoString("vanilla greek yogurt", "10 lb"); 
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("carnation sweetened condensed milk", "14 oz"));
-            ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("evaporated milk", "12 lb"));
+            ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("organic evaporated milk", "12 fl oz"));
             //ListOfResponses.Add(//GetItemResponseData.GetItemResponseAndFormatIntoString("heavy whipping cream", "10 lb"); 
             //ListOfResponses.Add(//GetItemResponseData.GetItemResponseAndFormatIntoString("half and half", "10 lb"); 
             ListOfResponses.Add(GetItemResponseData.GetItemResponseAndFormatIntoString("raisins", "20 oz"));
@@ -190,21 +139,3 @@ namespace Roses
         }
     }
 }
-
-
-
-//if (!File.Exists(ResponseDatabase))
-//{
-//    var CreatedFile = File.Create(ResponseDatabase);
-//    MyDatabase.WriteLine(FormatString(response));
-//    //MyDatabase.Close();
-//}
-//else if (File.Exists(ResponseDatabase))
-//{
-//    if (!ResponseDatabase.Contains(response.Name))
-//    {
-//        MyDatabase.WriteLine(FormatString(response));
-//    }
-//MyDatabase.();
-//}
-
