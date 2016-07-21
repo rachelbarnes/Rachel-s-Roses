@@ -56,6 +56,55 @@ namespace Roses
             }
             return CompiledDatabase;
         }
+        public List<string[]> GetAllIngredientNamesAndPricesFromResponseDatabase(string ResponseDatabaseFilename)
+        {
+            var split = new SplitLines();
+            var ListOfFormattedItemResponses = ReadDatabase(ResponseDatabaseFilename);
+            var SplitResponse = new string[] { };
+            var IngredientName = "";
+            var IngredientPrice = "";
+            var IngredientNamePriceArray = new string[] { IngredientName, IngredientPrice };
+            var ListOfNamePriceArrays = new List<string[]>();
+            foreach (var FormattedItemResponses in ListOfFormattedItemResponses)
+            {
+                SplitResponse = split.SplitLineAtColon(FormattedItemResponses);
+                IngredientName = SplitResponse[0];
+                IngredientPrice = SplitResponse[2];
+                IngredientNamePriceArray[0] = IngredientName;
+                IngredientNamePriceArray[1] = IngredientPrice;
+                ListOfNamePriceArrays.Add(IngredientNamePriceArray);
+            }
+            return ListOfNamePriceArrays;//INTERESTING - each of the 34 arrays in this list are the chopped walnuts... for what reason, i don't know. 
+            //this is only getting walnuts ... tried it with cinnamon, but the math/logic/code below works0
+        }
+
+        //public string[] GetI
+        public decimal GetPriceForIndividualIngredient(string Ingredient, string ResponseDatabaseFilename)
+        {
+            var split = new SplitLines();
+            var numericStringToDecimal = new GeneralFunctionality();
+            var ResponseDatabase = GetAllIngredientNamesAndPricesFromResponseDatabase(ResponseDatabaseFilename);
+            var CurrentNamePriceArray = new string[] { };
+            var IngredientName = "";
+            var IngredientPrice = "";
+            var IngredientPriceDecimal = 0m;
+            for (int IngredientNamePriceArray = 0; IngredientNamePriceArray < ResponseDatabase.Count(); IngredientNamePriceArray++)
+            {
+                if (ResponseDatabase[0][IngredientNamePriceArray].ToLower().Contains(Ingredient.ToLower()))
+                {
+                    CurrentNamePriceArray = ResponseDatabase[IngredientNamePriceArray];
+                    IngredientName = CurrentNamePriceArray[0];
+                    IngredientPrice = CurrentNamePriceArray[1];
+                    var SplitPriceArray = split.SplitLineAtSpecifiedCharacter(IngredientPrice, '$');
+                    var DecimalPriceString = SplitPriceArray[1];
+                    if (numericStringToDecimal.IsStringNumericValue(DecimalPriceString) == true)
+                    {
+                        IngredientPriceDecimal = Convert.ToDecimal(SplitPriceArray[1]);
+                    }
+                }
+            }
+            return IngredientPriceDecimal;
+        }
     }
 
     public class Writer
@@ -141,6 +190,7 @@ namespace Roses
         }
     }
 }
+
 
 
 //if (!File.Exists(ResponseDatabase))

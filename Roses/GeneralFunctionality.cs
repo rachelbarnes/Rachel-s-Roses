@@ -28,8 +28,8 @@ namespace Roses
 
         public bool IsStringNumericValue(string IsNumber)
         {
-            int output;
-            bool isStringNumeric = int.TryParse(IsNumber, out output);
+            decimal output; 
+            bool isStringNumeric = decimal.TryParse(IsNumber, out output);
             if (isStringNumeric == true)
             {
                 return true;

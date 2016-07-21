@@ -65,38 +65,6 @@ namespace Roses
             var expected = "Flour: ITEM PRICE: $4: ITEM ID: 27";
             Assert.AreEqual(expected, actual);
         }
-        [Test]
-        public void TestingIfStringIsNumeric()
-        {
-            var testString = new GeneralFunctionality();
-            var expected = true;
-            var actual = testString.IsStringNumericValue("1345642");
-            Assert.AreEqual(expected, actual); 
-        }
-        [Test]
-        public void TestStringIfNumeric()
-        {
-            var testString = new GeneralFunctionality();
-            var expected = true;
-            var actual = testString.IsStringNumericValue("10");
-            Assert.AreEqual(expected, actual); 
-        }
-        [Test]
-        public void TestStringIfNumeric2()
-        {
-            var testString = new GeneralFunctionality();
-            var expected = false;
-            var actual = testString.IsStringNumericValue("abc123");
-            Assert.AreEqual(expected, actual); 
-        }
-        [Test]
-        public void TestSTringIfNumeric3()
-        {
-            var testString = new GeneralFunctionality();
-            var expected = false;
-            var actual = testString.IsStringNumericValue("flour");
-            Assert.AreEqual(expected, actual); 
-        }
         //[Test]
         //public void GetPercentForMeasuredCupsToStandardOunces()
         //{

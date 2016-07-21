@@ -55,7 +55,6 @@
     <Compile Include="GetIngredientResponse.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Interfaces.cs" />
-    <Compile Include="mo1.cs" />
     <Compile Include="RoundDecimalPlaces.cs" />
     <Compile Include="GeneralFunctionality.cs" />
     <Compile Include="ReaderAndWriter.cs" />

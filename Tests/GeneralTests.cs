@@ -95,6 +95,64 @@ namespace Roses
             var actual = fraction.CalculateDecimalFromFraction("2 3/4");
             Assert.AreEqual(expected, actual); 
         }
+        [Test]
+        public void TestNonNumericFraction()
+        {
+            var fraction = new GeneralFunctionality();
+            var expected = 0m;
+            var actual = fraction.CalculateDecimalFromFraction("2 b/r");
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestingIfStringIsNumeric()
+        {
+            var testString = new GeneralFunctionality();
+            var expected = true;
+            var actual = testString.IsStringNumericValue("1345642");
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestStringIfNumeric()
+        {
+            var testString = new GeneralFunctionality();
+            var expected = true;
+            var actual = testString.IsStringNumericValue("10");
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestStringIfNumeric2()
+        {
+            var testString = new GeneralFunctionality();
+            var expected = false;
+            var actual = testString.IsStringNumericValue("abc123");
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestSTringIfNumeric3()
+        {
+            var testString = new GeneralFunctionality();
+            var expected = false;
+            var actual = testString.IsStringNumericValue("flour");
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void IsStringAValidNumber()
+        {
+            var test = new GeneralFunctionality();
+            var expected = true;
+            var actual = test.IsStringNumericValue("11.98");
+            Assert.AreEqual(expected, actual); 
+        }
+        [Test]
+        public void TestResponseDatabaseVSRealResponseDatabase()
+        {
+            var readDatabase = new Reader();
+            var TestDatabaseFilename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\TestItemResponseDatabase.txt";
+            var RealDatabaseFilename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
+            var expectedDatabase = readDatabase.GetAllIngredientNamesAndPricesFromResponseDatabase(TestDatabaseFilename);
+            var actualDatabase = readDatabase.GetAllIngredientNamesAndPricesFromResponseDatabase(RealDatabaseFilename);
+            Assert.AreEqual(expectedDatabase, actualDatabase);  
+        }
     }
 }
 
