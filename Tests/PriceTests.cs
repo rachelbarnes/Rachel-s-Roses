@@ -71,7 +71,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 11.98m;
-            var actual = getprice.GetPriceForIndividualIngredient("chopped walnuts", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("chopped walnuts"); //, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -80,7 +80,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 2.44m;
-            var actual = getprice.GetPriceForIndividualIngredient("cinnamon", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("cinnamon");//, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -89,7 +89,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 4.62m;
-            var actual = getprice.GetPriceForIndividualIngredient("yeast", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("yeast");//, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -98,7 +98,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 3.98m;
-            var actual = getprice.GetPriceForIndividualIngredient("all purpose flour", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("all purpose flour");//, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -107,7 +107,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 3.28m;
-            var actual = getprice.GetPriceForIndividualIngredient("cake flour", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("cake flour");//, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -116,7 +116,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 2.48m;
-            var actual = getprice.GetPriceForIndividualIngredient("oats", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("oats");//, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -125,7 +125,7 @@ namespace Roses
             var getprice = new PriceLogic();
             var filename = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt";
             var expected = 2.71m;
-            var actual = getprice.GetPriceForIndividualIngredient("mini morsels", filename);
+            var actual = getprice.GetPriceForIndividualIngredient("mini morsels");//, filename);
             Assert.AreEqual(expected, actual);
         }
         [Test]
@@ -136,7 +136,7 @@ namespace Roses
             var responseDatabase = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; ;
             var expected = .103m;
             var actual = getprice.GetPriceForOneOunceOfIngredient("cake flour", ratioDatabase, responseDatabase);
-            Assert.AreEqual(expected, actual); 
-                }
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -11,12 +11,16 @@ namespace Roses
     {
         static void Main(string[] args)
         {
-            var read = new Reader();
-            var ResponseDatabase = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; 
+            var manage = new DataManager();
+            manage.GetDeserializedDatabaseData(@"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"); 
+            
+            //var read = new Reader();
+            //var ResponseDatabase = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; 
 
-            var write = new Writer();
-            write.WriteLineToFile(ResponseDatabase);
-            Console.ReadLine(); 
+            //var write = new Writer();
+            //write.WriteLineToFile(ResponseDatabase);
+            //Console.ReadLine(); 
+
 
             //var WriteToDatabase = new Writer();
             //var TestResponse = new ItemResponse();

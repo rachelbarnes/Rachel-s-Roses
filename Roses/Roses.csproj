@@ -51,9 +51,9 @@
     <Compile Include="AdjustRecipe.cs" />
     <Compile Include="CombineArrays.cs" />
     <Compile Include="ConvertToTablespoons.cs" />
+    <Compile Include="DataManager.cs" />
     <Compile Include="PriceLogic.cs" />
     <Compile Include="GetIngredientResponse.cs" />
-    <Compile Include="Ingredient.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="RoundDecimalPlaces.cs" />
     <Compile Include="GeneralFunctionality.cs" />

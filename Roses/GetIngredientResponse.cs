@@ -46,13 +46,11 @@ namespace Roses
         {
             var format = new Writer(); 
             var write = new Writer(); 
-            //var ResponseDatabaseFile = @"C:\Users\Rachel\Documents\Visual Studio 2015\Projects\RachelsRoses\Rachel-s-Roses\ItemResponseDatabase.txt"; 
             var items = MakeRequest<SearchResponse>(buildSearchRequest(IngredientName)).Items;
             var certainSize = items.Where(item => item.Name.ToLower().Contains(IngredientSellingSize));
             var firstItem = items.First();
             var response = format.FormatString(firstItem);
             return response; 
-            //write.WriteLineToFile(ResponseDatabaseFile, firstItem);
         }
    
 

@@ -13,68 +13,35 @@ namespace Roses
         public Func<decimal, decimal, decimal> PricePerOunceFromPound = (price, weightInLbs) => Decimal.Round(price / (weightInLbs / 16), 3);
 
 
-        public List<string[]> GetAllIngredientNamesAndPricesFromResponseDatabase(string ResponseDatabaseFilename)
-        {
-            var ReadDatabase = new Reader();
-            var split = new SplitLines();
-            var read = new Reader();
-            var ListOfFormattedItemResponses = read.ReadDatabase(ResponseDatabaseFilename);
-            var SplitResponse = new string[] { };
-            var ListOfNamePriceArrays = new List<string[]>();
-            for (int i = 0; i < ListOfFormattedItemResponses.Count(); i++)
-            {
-                var NamePriceArray = new string[2] { "", "" };
-                var SplitItemResponse = split.SplitLineAtColon(ListOfFormattedItemResponses[i]);
-                var Name = SplitItemResponse[0];
-                var Price = SplitItemResponse[2];
-                NamePriceArray[0] = Name;
-                NamePriceArray[1] = Price;
-                ListOfNamePriceArrays.Add(NamePriceArray);
-            }
-            return ListOfNamePriceArrays;
-        }
 
-        public decimal GetPriceForIndividualIngredient(string Ingredient, string ResponseDatabaseFilename)
-        {
-            var split = new SplitLines();
-            var read = new Reader();
-            var numericStringToDecimal = new GeneralFunctionality();
-            var ListOfFormattedItemResponses = read.ReadDatabase(ResponseDatabaseFilename);
-            var ResponseDatabase = GetAllIngredientNamesAndPricesFromResponseDatabase(ResponseDatabaseFilename);
-            var CurrentArray = new string[] { };
-            var IngredientPriceDecimal = 0m;
-            for (int i = 0; i < ResponseDatabase.Count(); i++)
-            {
-                var CurrentUnalteredLine = ListOfFormattedItemResponses[i];
-                CurrentArray = ResponseDatabase[i];
-                var CurrentIngredientName = "";
-                var CurrentIngredientPrice = "";
-                if (CurrentUnalteredLine.ToLower().Contains(Ingredient.ToLower()) || CurrentArray.ToString().ToLower().Contains(Ingredient.ToLower()))
-                {
-                    if (CurrentUnalteredLine.Count(x => x == ':') > 4)
-                    {
-                        CurrentArray = split.ExtraColonInString(CurrentUnalteredLine.ToString());
-                        CurrentIngredientName = CurrentArray[0];
-                        CurrentIngredientPrice = CurrentArray[1];
-                        CurrentArray[0] = CurrentIngredientName;
-                        CurrentArray[1] = CurrentIngredientPrice;
-                    }
-                    if (CurrentUnalteredLine.Count(x => x == ':') <= 4)
-                    {
-                        CurrentArray = ResponseDatabase[i];
-                        CurrentIngredientName = CurrentArray[0];
-                        CurrentIngredientPrice = CurrentArray[1];
-                    }
-                    var splitPriceArray = split.SplitLineAtSpecifiedCharacter(CurrentIngredientPrice, '$');
-                    var DecimalPrice = splitPriceArray[1];
-                    if (numericStringToDecimal.IsStringNumericValue(DecimalPrice) == true)
-                    {
-                        IngredientPriceDecimal = Convert.ToDecimal(DecimalPrice);
-                    }
-                }
-            }
-            return Decimal.Round(IngredientPriceDecimal, 3);
-        }
+        public List<string> ListOfDictionaryKeys = DataManager.IngredientNamePriceDictionary.Keys.ToList(); 
+        public Func<string, decimal> GetPriceForIndividualIngredient = Ingredient => Convert.ToDecimal(DataManager.IngredientNamePriceDictionary[Ingredient]) ;
+
+
+        /*
+         get price per ounce for gallons
+         get price per ounce for ounces
+         get price per ounce for lbs
+         */
+        // public decimal PricePerGallon(string Ingredient, string UnitOfMeasurement, string VolumeToWeightRatioDatabaseFilename, string ResponseDatabaseFilename)
+        //{
+        //    var read = new Reader();
+        //    var RatioDatabse = read.ReadDatabase(VolumeToWeightRatioDatabaseFilename);
+        //    var ResponseDatabase = read.ReadDatabase(ResponseDatabaseFilename); 
+        //    for (int i = 0; i < ResponseDatabase.Count(); i++)
+        //    {
+        //        if (ResponseDatabase[i].Contains(Ingredient) && ResponseDatabase[i].Contains(UnitOfMeasurement))
+        //        {
+        //            for (int j = 0; j < RatioDatabse.Count(); j++)
+        //            {
+        //                if (RatioDatabse[j].Contains(Ingredient}
+        //        }
+        //        {
+
+        //        }))
+        //            }
+        //        }
+        //    }
 
         public decimal GetPriceForOneOunceOfIngredient(string Ingredient, string VolumeToWeightRatioDatabase, string ResponseDatabaseFilename)
         {
@@ -85,7 +52,7 @@ namespace Roses
             var IngredientVolumeToWeightRatios = read.ReadDatabase(VolumeToWeightRatioDatabase);
             var UnalteredResponseDatabase = read.ReadDatabase(ResponseDatabaseFilename);
             var IngredientPrice = 0m;
-            //var ParsedNumberString = 0m;
+            //var ParsedNumberString = 0m;IngredientName, IngredientPrice 
             var CalculatedOunces = 0m;
             //var OuncesForStandardMeasuredIngredient = 0m;
             var PricePerOunce = 0m;
@@ -93,7 +60,7 @@ namespace Roses
             {
                 if (UnalteredResponseDatabase[i].Contains(Ingredient))
                 {
-                    IngredientPrice = GetPriceForIndividualIngredient(Ingredient, ResponseDatabaseFilename);
+                    IngredientPrice = GetPriceForIndividualIngredient(Ingredient); //, ResponseDatabaseFilename);
                     for (int j = 0; j < IngredientVolumeToWeightRatios.Count(); j++)
                     {
                         if (IngredientVolumeToWeightRatios[j].Contains(Ingredient))
@@ -106,7 +73,7 @@ namespace Roses
                                     decimal output;
                                     if (convertToNmber.IsStringNumericValue(array) == true)
                                     {
-                                        Decimal.TryParse(array, out output);
+                                        Decimal.TryParse(array, out output);//memory representaion, keeping a file in memory to get the values... it's a memory manager ... it's a data structure manager that manages the memory of that files
                                         CalculatedOunces = output;
                                     }
                                 }
