@@ -31,6 +31,10 @@ Price Analysis and Evaluator
 		Difference calculator of estimated and actual
 		Product price calculator
 		Get a list of products with a key word
+		To pair with a rest call, to increase efficiency, i dump all of the new entries in a dictionary to call instead of looking for the rest call or reading the document every time i need something... this takes a too much time and effort
+
+Shopping List Generator
+	Based on the density charts, aggregate a shopping list (maybe create a dictionary of the ingredient and the amount in ounces and/or cups as the value?)
 
 Nutritional Analysis
 	Get the nutritional information of individual ingredeints as well as whole recipes with serving sizes and calories. This would include the entire nutritional lablel that is standard on products sold, which includes calories, calories from fat, servings per container, serving sizes, total fat, saturated fat, trans fat, cholesteral, sodium, total carbs, dietary fiber, sugars, protein, vitmains A, C, Calcium and Iron. I also want the % Daily Value with percentages, as well as the ingredients in my products in the required orders. This will be able to write this information into a word file, which I would like to be able to customize the format of the word file to print on some large labels so I could print them and place on bread, etc. if needed. If no labels, then just write to a word document. 
@@ -39,4 +43,15 @@ Nutritional Analysis
 		Print accurate nutritional facts, incl. servings, serving size and calories
 		% Daily Value according to a 2000 calorie diet
 		Write to a standard word file 
-		Write to a customized word file with 4"x6" labels  
+		Write to a customized word file with 4"x6" labels 
+		
+		
+Incorperating SQL with either SQL Management Studio or Access
+	Create a log of all the information on past cakes and other goods I've done (whole wheat bread, cinnamon buttermilk bread, etc.)
+	Date of creation (if bread, all dates of creation), how long the process takes, first rising period, second rising period, etc. 
+	Other information, etc.  
+		this can be done to use servings, etc. for wilton serving size charts, density information, for price analyis
+		you can do price invoices with access, but can you access access on your phone? 
+		create a price analysis for a particular item based on price analysis and evaluator above, which i would like to be able to done
+			using access as well as unity or xamarin
+				using access and including all the information would allow you to have all your infmormation recorded for access
